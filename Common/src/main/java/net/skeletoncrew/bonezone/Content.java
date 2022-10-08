@@ -1,8 +1,12 @@
 package net.skeletoncrew.bonezone;
 
+import net.darkhax.bookshelf.api.Services;
 import net.darkhax.bookshelf.api.registry.RegistryDataProvider;
 import net.minecraft.world.item.Items;
+import net.skeletoncrew.bonezone.block.BoneCarverBlock;
 import net.skeletoncrew.bonezone.block.BoneLadderBlock;
+import net.skeletoncrew.bonezone.recipe.bonecarving.BonecarvingRecipeSerializer;
+import net.skeletoncrew.bonezone.ui.bonecarving.BonecarverMenu;
 
 public class Content extends RegistryDataProvider {
 
@@ -18,15 +22,16 @@ public class Content extends RegistryDataProvider {
         this.recipeTypes.add("bonecarving");
 
         // Recipe Serializers
-        // TODO
+        this.recipeSerializers.add(BonecarvingRecipeSerializer::new, "bonecarving");
 
         // Blocks
         this.blocks.add(BoneLadderBlock::new, "bone_ladder");
+        this.blocks.add(BoneCarverBlock::new, "bonecarver");
 
         // Items
         // TODO
 
         // Menus
-        // TODO
+        this.menus.add(() -> Services.CONSTRUCTS.menuType(BonecarverMenu::fromNetwork), "bonecarver");
     }
 }

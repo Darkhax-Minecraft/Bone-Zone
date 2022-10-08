@@ -3,6 +3,10 @@
 
   "_blocks": "Block Names",
   "block.bonezone.bone_ladder": "Bone Ladder",
+  "block.bonezone.bonecarver": "Bonecarver",
 
-  "_item": "Item Names"
+  "_item": "Item Names",
+
+  "_ui": "GUI's",
+  "container.bonezone.bonecarver": "Bonecarver"
 }
