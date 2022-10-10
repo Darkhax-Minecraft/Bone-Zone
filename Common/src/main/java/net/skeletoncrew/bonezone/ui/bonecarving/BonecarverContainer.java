@@ -1,7 +1,8 @@
 package net.skeletoncrew.bonezone.ui.bonecarving;
 
 import net.minecraft.world.SimpleContainer;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 
 public class BonecarverContainer extends SimpleContainer {
 
