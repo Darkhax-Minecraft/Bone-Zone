@@ -30,7 +30,7 @@ public class Content extends RegistryDataProvider {
         this.blocks.add(BoneCarverBlock::new, "bonecarver");
         this.blocks.add(TempBlock::new, "creeper_skull");
         this.blocks.add(TempBlock::new, "spinal_skull_goat");
-
+        this.blocks.add(TempBlock::new, "spinal_skull_deer");
 
         // Items
         // TODO Only if we have non-block items
