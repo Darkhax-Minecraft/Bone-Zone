@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 
+@Deprecated
 public class TempBlock extends Block implements IBindRenderLayer, Wearable {
 
     // TODO The ItemBlock is probably enchantable which we don't want
