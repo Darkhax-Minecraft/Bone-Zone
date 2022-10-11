@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "bonezone:block/spinal_skull_deer"
+    },
+    "facing=south": {
+      "model": "bonezone:block/spinal_skull_deer",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "bonezone:block/spinal_skull_deer",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "bonezone:block/spinal_skull_deer",
+      "y": 270
     }
   }
 }

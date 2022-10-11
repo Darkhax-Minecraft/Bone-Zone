@@ -1,0 +1,263 @@
+{
+  "textures": {
+    "spine": "bonezone:block/skull/spine",
+    "skull": "bonezone:block/skull/bird/skull",
+    "beak": "bonezone:block/skull/bird/beak",
+    "particle": "bonezone:block/skull/bird/skull"
+  },
+  "elements": [
+    {
+      "name": "head",
+      "from": [4, 0, 5],
+      "to": [12, 8, 12],
+      "rotation": {
+        "angle": 22.5,
+        "axis": "x",
+        "origin": [8, 4, 8]
+      },
+      "faces": {
+        "south": {
+          "uv": [4, 8, 12, 16],
+          "texture": "spine"
+        },
+        "up": {
+          "uv": [4, 1, 12, 8],
+          "texture": "spine"
+        }
+      }
+    },
+    {
+      "name": "tete",
+      "from": [4, 4, 2],
+      "to": [12, 9, 8],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [8, 7, 5]
+      },
+      "faces": {
+        "north": {
+          "uv": [2, 8, 10, 13],
+          "texture": "skull"
+        },
+        "east": {
+          "uv": [16, 2, 10, 7],
+          "texture": "skull"
+        },
+        "south": {
+          "uv": [2, 2, 10, 7],
+          "texture": "skull"
+        },
+        "west": {
+          "uv": [10, 2, 16, 7],
+          "texture": "skull"
+        },
+        "up": {
+          "uv": [2, 0, 10, 6],
+          "texture": "skull"
+        }
+      }
+    },
+    {
+      "name": "beakRight_inverse_inside",
+      "from": [12.3, 2, -4.5],
+      "to": [10.3, 10, 5.5],
+      "rotation": {
+        "angle": 22.5,
+        "axis": "y",
+        "origin": [12, 0, 4]
+      },
+      "faces": {
+        "south": {
+          "uv": [15, 8, 16, 16],
+          "texture": "beak"
+        },
+        "west": {
+          "uv": [6, 8, 16, 16],
+          "texture": "beak"
+        }
+      }
+    },
+    {
+      "name": "beakRight",
+      "from": [10.3, 2, -4.5],
+      "to": [12.3, 10, 5.5],
+      "rotation": {
+        "angle": 22.5,
+        "axis": "y",
+        "origin": [12, 0, 4]
+      },
+      "faces": {
+        "east": {
+          "uv": [16, 8, 6, 16],
+          "texture": "beak"
+        },
+        "south": {
+          "uv": [15, 8, 16, 16],
+          "texture": "beak"
+        }
+      }
+    },
+    {
+      "name": "beakLeft_inverse_inside",
+      "from": [5.7, 2, -4.5],
+      "to": [3.7, 10, 5.5],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "y",
+        "origin": [4, 0, 4]
+      },
+      "faces": {
+        "east": {
+          "uv": [16, 8, 6, 16],
+          "texture": "beak"
+        },
+        "south": {
+          "uv": [15, 8, 16, 16],
+          "texture": "beak"
+        }
+      }
+    },
+    {
+      "name": "beakLeft",
+      "from": [3.7, 2, -4.5],
+      "to": [5.7, 10, 5.5],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "y",
+        "origin": [4, 0, 4]
+      },
+      "faces": {
+        "south": {
+          "uv": [15, 8, 16, 16],
+          "texture": "beak"
+        },
+        "west": {
+          "uv": [6, 8, 16, 16],
+          "texture": "beak"
+        }
+      }
+    },
+    {
+      "name": "inner",
+      "from": [7, 3, -6],
+      "to": [9, 8, 2],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "x",
+        "origin": [8, 8, 1]
+      },
+      "faces": {
+        "north": {
+          "uv": [0, 11, 2, 16],
+          "texture": "beak"
+        },
+        "east": {
+          "uv": [16, 1, 8, 6],
+          "texture": "beak"
+        },
+        "west": {
+          "uv": [8, 1, 16, 6],
+          "texture": "beak"
+        },
+        "up": {
+          "uv": [0, 0, 2, 8],
+          "texture": "beak"
+        }
+      }
+    },
+    {
+      "name": "inner_inverse_inside",
+      "from": [9, 3, -6],
+      "to": [7, 8, 2],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "x",
+        "origin": [8, 8, 1]
+      },
+      "faces": {
+        "north": {
+          "uv": [0, 0, 0, 5],
+          "texture": "beak"
+        },
+        "east": {
+          "uv": [16, 1, 8, 6],
+          "texture": "beak"
+        },
+        "west": {
+          "uv": [8, 1, 16, 6],
+          "texture": "beak"
+        },
+        "up": {
+          "uv": [0, 0, 0, 8],
+          "texture": "beak"
+        }
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [75, 45, 0],
+      "scale": [0.375, 0.375, 0.375]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [75, 45, 0],
+      "scale": [0.375, 0.375, 0.375]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, 45, 0],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 225, 0],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "ground": {
+      "translation": [0, 3, 0],
+      "scale": [0.25, 0.25, 0.25]
+    },
+    "gui": {
+      "rotation": [30, 225, 0],
+      "translation": [-2.5, 4, 0]
+    },
+    "head": {
+      "rotation": [-21.5, 0, 0],
+      "translation": [0, 7, -2.5],
+      "scale": [1.8, 1.8, 1.8]
+    },
+    "fixed": {
+      "rotation": [-45, 0, 0],
+      "translation": [0, 5.5, -2]
+    }
+  },
+  "groups": [
+    0,
+    {
+      "name": "group",
+      "origin": [0, 0, 0],
+      "color": 0,
+      "children": [1, 2]
+    },
+    3,
+    4,
+    5,
+    {
+      "name": "rightBeak",
+      "origin": [12, 0, 4],
+      "color": 0,
+      "children": [6, 7]
+    },
+    {
+      "name": "leftBeak",
+      "origin": [4, 0, 4],
+      "color": 0,
+      "children": [8, 9]
+    },
+    {
+      "name": "centerBeak",
+      "origin": [8, 8, 1],
+      "color": 0,
+      "children": [10, 11]
+    }
+  ]
+}

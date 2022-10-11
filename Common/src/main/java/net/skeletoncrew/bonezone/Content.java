@@ -32,6 +32,7 @@ public class Content extends RegistryDataProvider {
         this.blocks.add(TempBlock::new, "creeper_skull");
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_goat");
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_deer");
+        this.blocks.add(SpineSkullBlock::new, "spinal_skull_bird");
 
         // Items
         // TODO Only if we have non-block items
