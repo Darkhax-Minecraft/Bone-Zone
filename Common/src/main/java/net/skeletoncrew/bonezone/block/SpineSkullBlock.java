@@ -1,10 +1,13 @@
 package net.skeletoncrew.bonezone.block;
 
 import net.darkhax.bookshelf.api.block.IBindRenderLayer;
+import net.darkhax.bookshelf.api.item.IEquippable;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Wearable;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -16,10 +19,9 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class SpineSkullBlock extends Block implements IBindRenderLayer, Wearable {
+public class SpineSkullBlock extends Block implements IBindRenderLayer, IEquippable {
 
-    // TODO The ItemBlock is probably enchantable which we don't want
-    protected static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
+    protected static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 7.0D, 12.0D);
 
     private static final Properties PROPERTIES = Properties.of(Material.DECORATION)
             .noOcclusion()
@@ -83,5 +85,9 @@ public class SpineSkullBlock extends Block implements IBindRenderLayer, Wearable
         return RenderType.cutout();
     }
 
+    @Override
+    public EquipmentSlot getEquipmentSlot(ItemStack stack) {
 
+        return EquipmentSlot.HEAD;
+    }
 }
