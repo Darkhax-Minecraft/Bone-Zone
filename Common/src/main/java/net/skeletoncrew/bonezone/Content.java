@@ -5,6 +5,7 @@ import net.darkhax.bookshelf.api.registry.RegistryDataProvider;
 import net.minecraft.world.item.Items;
 import net.skeletoncrew.bonezone.block.BoneCarverBlock;
 import net.skeletoncrew.bonezone.block.BoneLadderBlock;
+import net.skeletoncrew.bonezone.block.Skullpot;
 import net.skeletoncrew.bonezone.block.SpineSkullBlock;
 import net.skeletoncrew.bonezone.recipe.bonecarving.BonecarvingRecipeSerializer;
 import net.skeletoncrew.bonezone.ui.bonecarving.BonecarverMenu;
@@ -31,6 +32,11 @@ public class Content extends RegistryDataProvider {
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_goat");
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_deer");
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_bird");
+        this.blocks.add(Skullpot::new, "skullpot_skeleton");
+        this.blocks.add(Skullpot::new, "skullpot_turned_skeleton");
+        this.blocks.add(Skullpot::new, "skullpot_creeper");
+        this.blocks.add(Skullpot::new, "skullpot_turned_creeper");
+
 
         // Items
         // TODO Only if we have non-block items
