@@ -28,7 +28,7 @@ public class BoneCarverBlock extends Block {
 
     private static final Properties PROPERTIES = Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.5F);
     private static final Component TITLE = Component.translatable("container.bonezone.bonecarver");
-    private static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 9.0, 16.0);
+    private static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0);
 
     public BoneCarverBlock() {
 
