@@ -8,7 +8,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Wearable;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
@@ -34,31 +33,31 @@ public class SpineSkullBlock extends Block implements IBindRenderLayer, IEquippa
 
     public SpineSkullBlock() {
         super(PROPERTIES);
-        this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.FACING, Direction.NORTH));
+        this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
 
-        return this.defaultBlockState().setValue(BlockStateProperties.FACING, context.getHorizontalDirection().getOpposite());
+        return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, context.getHorizontalDirection().getOpposite());
     }
 
     @Override
     public BlockState rotate(BlockState state, Rotation rotation) {
 
-        return state.setValue(BlockStateProperties.FACING, rotation.rotate(state.getValue(BlockStateProperties.FACING)));
+        return state.setValue(BlockStateProperties.HORIZONTAL_FACING, rotation.rotate(state.getValue(BlockStateProperties.HORIZONTAL_FACING)));
     }
 
     @Override
     public BlockState mirror(BlockState state, Mirror mirrorAxis) {
 
-        return state.rotate(mirrorAxis.getRotation(state.getValue(BlockStateProperties.FACING)));
+        return state.rotate(mirrorAxis.getRotation(state.getValue(BlockStateProperties.HORIZONTAL_FACING)));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateBuilder) {
 
-        stateBuilder.add(BlockStateProperties.FACING);
+        stateBuilder.add(BlockStateProperties.HORIZONTAL_FACING);
     }
 
     private static boolean never(BlockState state, BlockGetter getter, BlockPos pos) {
