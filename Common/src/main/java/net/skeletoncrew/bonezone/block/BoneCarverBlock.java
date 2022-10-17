@@ -33,13 +33,13 @@ public class BoneCarverBlock extends Block {
     public BoneCarverBlock() {
 
         super(PROPERTIES);
-        this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.FACING, Direction.NORTH));
+        this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
 
-        return this.defaultBlockState().setValue(BlockStateProperties.FACING, context.getHorizontalDirection().getOpposite());
+        return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, context.getHorizontalDirection().getOpposite());
     }
 
     @Override
@@ -75,19 +75,19 @@ public class BoneCarverBlock extends Block {
     @Override
     public BlockState rotate(BlockState state, Rotation rotation) {
 
-        return state.setValue(BlockStateProperties.FACING, rotation.rotate(state.getValue(BlockStateProperties.FACING)));
+        return state.setValue(BlockStateProperties.HORIZONTAL_FACING, rotation.rotate(state.getValue(BlockStateProperties.HORIZONTAL_FACING)));
     }
 
     @Override
     public BlockState mirror(BlockState state, Mirror mirrorAxis) {
 
-        return state.rotate(mirrorAxis.getRotation(state.getValue(BlockStateProperties.FACING)));
+        return state.rotate(mirrorAxis.getRotation(state.getValue(BlockStateProperties.HORIZONTAL_FACING)));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateBuilder) {
 
-        stateBuilder.add(BlockStateProperties.FACING);
+        stateBuilder.add(BlockStateProperties.HORIZONTAL_FACING);
     }
 
     @Override
