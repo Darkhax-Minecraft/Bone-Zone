@@ -69,14 +69,16 @@ public class CustomPotBlock extends Block implements IBindRenderLayer, IItemBloc
         // Take flower out
         if (heldStack.isEmpty() && !this.isEmpty()) {
 
-            final ItemStack giveStack = new ItemStack(this.contained);
-            player.setItemInHand(hand, giveStack);
+            if (!player.getAbilities().instabuild) {
+                final ItemStack giveStack = new ItemStack(this.contained);
+                player.getInventory().add(giveStack);
+            }
             worldLevel.setBlock(pos, this.getEmptyBlock().applyFrom(state), 3);
             worldLevel.playSound(player, pos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1.0F, 1.0F);
         }
 
         // Put flower in
-        else if (this.isEmpty()){
+        else if (this.isEmpty()) {
 
             final CustomPotBlock toPlace = this.variants.getOrDefault(heldStack.getItem(), this);
 
