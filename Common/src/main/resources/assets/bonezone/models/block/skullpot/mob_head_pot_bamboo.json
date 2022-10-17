@@ -12,39 +12,39 @@
     "bamboo": "block/bamboo_stalk",
     "leaf": "block/bamboo_singleleaf"
   },
-  "elements": [{
-    "name": "head",
-    "from": [4.0, 0.0, 4.0],
-    "to": [12.0, 8.0, 12.0],
-    "faces": {
-      "north": {
-        "texture": "#head_north",
-        "uv": [2.0, 4.0, 4.0, 8.0]
-      },
-      "east": {
-        "texture": "#head_east",
-        "uv": [0.0, 4.0, 2.0, 8.0]
-      },
-      "south": {
-        "texture": "#head_south",
-        "uv": [6.0, 4.0, 8.0, 8.0]
-      },
-      "west": {
-        "texture": "#head_west",
-        "uv": [4.0, 4.0, 6.0, 8.0]
-      },
-      "up": {
-        "texture": "#head_top",
-        "uv": [4.0, 0.0, 6.0, 4.0]
-      },
-      "down": {
-        "texture": "#head_bottom",
-        "uv": [2.0, 0.0, 4.0, 4.0],
-        "cullface": "down"
-      }
-    }
-  },
+  "elements": [
     {
+      "name": "head",
+      "from": [4.0, 0.0, 4.0],
+      "to": [12.0, 8.0, 12.0],
+      "faces": {
+        "north": {
+          "texture": "#head_north",
+          "uv": [2.0, 4.0, 4.0, 8.0]
+        },
+        "east": {
+          "texture": "#head_east",
+          "uv": [0.0, 4.0, 2.0, 8.0]
+        },
+        "south": {
+          "texture": "#head_south",
+          "uv": [6.0, 4.0, 8.0, 8.0]
+        },
+        "west": {
+          "texture": "#head_west",
+          "uv": [4.0, 4.0, 6.0, 8.0]
+        },
+        "up": {
+          "texture": "#head_top",
+          "uv": [4.0, 0.0, 6.0, 4.0]
+        },
+        "down": {
+          "texture": "#head_bottom",
+          "uv": [2.0, 0.0, 4.0, 4.0],
+          "cullface": "down"
+        }
+      }
+    }, {
       "name": "head_inside",
       "from": [12.0, 1.0, 4.0],
       "to": [4.0, 8.0, 12.0],
@@ -66,8 +66,7 @@
           "uv": [4.0, 4.25, 6.0, 8.0]
         }
       }
-    },
-    {
+    }, {
       "name": "soil",
       "from": [5.0, 7.0, 5.0],
       "to": [11.0, 7.0, 11.0],
@@ -77,8 +76,7 @@
           "uv": [5.0, 5.0, 11.0, 11.0]
         }
       }
-    },
-    {
+    }, {
       "name": "bamboo_chute",
       "from": [7, 0, 7],
       "to": [9, 16, 9],
@@ -105,8 +103,7 @@
           "texture": "#bamboo"
         }
       }
-    },
-    {
+    }, {
       "name": "bamboo_leaf",
       "from": [0, 2, 8],
       "to": [16, 18, 8],

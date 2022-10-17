@@ -1,12 +1,9 @@
 package net.skeletoncrew.bonezone;
 
-import com.mojang.datafixers.kinds.Const;
 import net.darkhax.bookshelf.api.Services;
 import net.darkhax.bookshelf.api.registry.RegistryDataProvider;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -17,7 +14,6 @@ import net.skeletoncrew.bonezone.block.SpineSkullBlock;
 import net.skeletoncrew.bonezone.recipe.bonecarving.BonecarvingRecipeSerializer;
 import net.skeletoncrew.bonezone.ui.bonecarving.BonecarverMenu;
 
-import java.util.IdentityHashMap;
 import java.util.Map;
 
 public class Content extends RegistryDataProvider {
