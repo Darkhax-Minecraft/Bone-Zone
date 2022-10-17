@@ -1,22 +1,25 @@
 package net.skeletoncrew.bonezone;
 
-import net.darkhax.bookshelf.api.function.CachedSupplier;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.level.GrassColor;
 import net.skeletoncrew.bonezone.ui.bonecarving.BonecarverMenu;
 import net.skeletoncrew.bonezone.ui.bonecarving.BonecarverScreen;
 
 public class BoneZoneFabricClient implements ClientModInitializer {
 
-    private static final CachedSupplier<MenuType<?>> MENU_TYPE = CachedSupplier.cache(() -> Registry.MENU.get(new ResourceLocation(Constants.MOD_ID, "bonecarver")));
-
     @Override
     public void onInitializeClient() {
 
-        MenuType<BonecarverMenu> menu = (MenuType<BonecarverMenu>) MENU_TYPE.get();
-        MenuScreens.register(menu, BonecarverScreen::new);
+        // Screens
+        MenuScreens.register((MenuType<BonecarverMenu>) Constants.BONECARVER_MENU.get(), BonecarverScreen::new);
+
+        // Block Colors
+        final BlockColor plantColorProvider = (state, worldLevel, pos, i) -> worldLevel != null && pos != null ? BiomeColors.getAverageGrassColor(worldLevel, pos) : GrassColor.get(0.5, 1.0);
+        ColorProviderRegistry.BLOCK.register(plantColorProvider, Constants.SKELETON_FERN.get(), Constants.WITHER_FERN.get());
     }
 }

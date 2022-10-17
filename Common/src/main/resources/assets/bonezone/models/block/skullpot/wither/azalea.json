@@ -1,0 +1,14 @@
+{
+  "parent": "bonezone:block/skullpot/mob_head_pot_azalea_bush",
+  "textures": {
+    "particle": "minecraft:block/coal_block",
+    "head_north": "minecraft:entity/skeleton/wither_skeleton",
+    "head_east": "minecraft:entity/skeleton/wither_skeleton",
+    "head_south": "minecraft:entity/skeleton/wither_skeleton",
+    "head_west": "minecraft:entity/skeleton/wither_skeleton",
+    "head_top": "minecraft:entity/skeleton/wither_skeleton",
+    "head_bottom": "minecraft:entity/skeleton/wither_skeleton",
+    "side": "minecraft:block/potted_azalea_bush_side",
+    "top": "minecraft:block/potted_azalea_bush_top"
+  }
+}

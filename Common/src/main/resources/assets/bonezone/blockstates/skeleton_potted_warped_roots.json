@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "bonezone:block/skullpot/skeleton/warped_roots"
+    },
+    "facing=south": {
+      "model": "bonezone:block/skullpot/skeleton/warped_roots"
+,      "y": 180
+    },
+    "facing=east": {
+      "model": "bonezone:block/skullpot/skeleton/warped_roots"
+,      "y": 90
+    },
+    "facing=west": {
+      "model": "bonezone:block/skullpot/skeleton/warped_roots"
+,      "y": 270
+    }
+  }
+}

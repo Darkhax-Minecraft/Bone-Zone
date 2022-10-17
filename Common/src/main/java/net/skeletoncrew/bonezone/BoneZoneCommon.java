@@ -10,5 +10,8 @@ public class BoneZoneCommon {
 
         this.content = new Content();
         Services.REGISTRIES.loadContent(content);
+
+//        UglyDataGen.generateCrossModels("wither", "coal_block", "skeleton/wither_skeleton", "skeleton/wither_skeleton");
+//        UglyDataGen.generateCrossBlockstate("wither");
     }
 }

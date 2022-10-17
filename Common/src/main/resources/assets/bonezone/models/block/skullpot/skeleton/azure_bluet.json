@@ -1,0 +1,6 @@
+{
+  "parent": "bonezone:block/skullpot/mob_head_pot_cross",
+  "textures": {
+    "plant": "minecraft:block/azure_bluet"
+  }
+}

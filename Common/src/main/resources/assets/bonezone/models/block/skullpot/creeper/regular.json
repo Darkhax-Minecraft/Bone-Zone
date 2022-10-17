@@ -1,6 +1,0 @@
-{
-  "parent": "bonezone:block/skullpot/regular",
-  "textures": {
-    "entity": "minecraft:entity/creeper/creeper"
-  }
-}

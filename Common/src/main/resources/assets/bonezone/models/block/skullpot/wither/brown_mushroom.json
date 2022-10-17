@@ -1,0 +1,13 @@
+{
+  "parent": "bonezone:block/skullpot/mob_head_pot_cross",
+  "textures": {
+    "particle": "minecraft:block/coal_block",
+    "head_north": "minecraft:entity/skeleton/wither_skeleton",
+    "head_east": "minecraft:entity/skeleton/wither_skeleton",
+    "head_south": "minecraft:entity/skeleton/wither_skeleton",
+    "head_west": "minecraft:entity/skeleton/wither_skeleton",
+    "head_top": "minecraft:entity/skeleton/wither_skeleton",
+    "head_bottom": "minecraft:entity/skeleton/wither_skeleton",
+    "plant": "minecraft:block/brown_mushroom"
+  }
+}

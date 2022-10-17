@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "bonezone:block/skullpot/wither/spruce_sapling"
+    },
+    "facing=south": {
+      "model": "bonezone:block/skullpot/wither/spruce_sapling"
+,      "y": 180
+    },
+    "facing=east": {
+      "model": "bonezone:block/skullpot/wither/spruce_sapling"
+,      "y": 90
+    },
+    "facing=west": {
+      "model": "bonezone:block/skullpot/wither/spruce_sapling"
+,      "y": 270
+    }
+  }
+}
