@@ -1,6 +1,6 @@
 {
   "parent": "bonezone:block/skullpot/mob_head_pot",
   "textures": {
-    "head_north": "minecraft:entity/creeper/creeper"
+    "head_north": "bonezone:block/skullpot/creeper"
   }
 }
