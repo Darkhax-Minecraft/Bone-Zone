@@ -1,0 +1,8 @@
+{
+  "type": "bonezone:mobsanding",
+  "condition": ["minecraft:zombie", "minecraft:husk", "minecraft:zombified_piglin", "minecraft:zombie_villager", "minecraft:zombie_horse"],
+  "drops": {
+    "result": "minecraft:rotten_flesh",
+    "chance": 0.15
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "bonezone:mobsanding",
+  "condition": "minecraft:chicken",
+  "drops": {
+    "result": "minecraft:feather",
+    "chance": 0.75
+  }
+}
