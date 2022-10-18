@@ -1,0 +1,8 @@
+{
+  "type": "bonezone:mobsanding",
+  "condition": "minecraft:wither_skeleton",
+  "drops": {
+    "result": "minecraft:coal",
+    "chance": 0.05
+  }
+}

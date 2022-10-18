@@ -1,0 +1,8 @@
+{
+  "type": "bonezone:mobsanding",
+  "condition": ["minecraft:skeleton", "minecraft:stray"],
+  "drops": {
+    "result": "minecraft:bone_meal",
+    "chance": 0.35
+  }
+}

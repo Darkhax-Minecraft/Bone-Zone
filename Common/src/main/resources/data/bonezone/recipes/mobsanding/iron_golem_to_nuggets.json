@@ -1,0 +1,8 @@
+{
+  "type": "bonezone:mobsanding",
+  "condition": "minecraft:iron_golem",
+  "drops": {
+    "result": "minecraft:iron_nugget",
+    "chance": 0.05
+  }
+}

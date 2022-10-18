@@ -12,6 +12,7 @@ import net.skeletoncrew.bonezone.block.BoneLadderBlock;
 import net.skeletoncrew.bonezone.block.CustomPotBlock;
 import net.skeletoncrew.bonezone.block.SpineSkullBlock;
 import net.skeletoncrew.bonezone.recipe.bonecarving.BonecarvingRecipeSerializer;
+import net.skeletoncrew.bonezone.recipe.mobsanding.MobsandingRecipeSerializer;
 import net.skeletoncrew.bonezone.ui.bonecarving.BonecarverMenu;
 
 import java.util.Map;
@@ -28,9 +29,11 @@ public class Content extends RegistryDataProvider {
 
         // Recipe Types
         this.recipeTypes.add("bonecarving");
+        this.recipeTypes.add("mobsanding");
 
         // Recipe Serializers
         this.recipeSerializers.add(BonecarvingRecipeSerializer::new, "bonecarving");
+        this.recipeSerializers.add(MobsandingRecipeSerializer::new, "mobsanding");
 
         // Blocks
         this.blocks.add(BoneLadderBlock::new, "bone_ladder");

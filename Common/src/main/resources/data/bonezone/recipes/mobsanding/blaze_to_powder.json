@@ -1,0 +1,8 @@
+{
+  "type": "bonezone:mobsanding",
+  "condition": "minecraft:blaze",
+  "drops": {
+    "result": "minecraft:blaze_powder",
+    "chance": 0.05
+  }
+}
