@@ -1,0 +1,15 @@
+{
+  "parent": "bonezone:block/skullpot/mob_head_pot_azalea_bush",
+  "textures": {
+    "particle": "minecraft:entity/skeleton/skeleton",
+    "head_north": "bonezone:block/skullpot/creeper",
+    "head_east": "minecraft:entity/skeleton/skeleton",
+    "head_south": "minecraft:entity/skeleton/skeleton",
+    "head_west": "minecraft:entity/skeleton/skeleton",
+    "head_top": "minecraft:entity/skeleton/skeleton",
+    "head_bottom": "minecraft:entity/skeleton/skeleton",
+"top": "minecraft:block/potted_flowering_azalea_bush_top",
+,
+"side": "minecraft:block/potted_flowering_azalea_bush_side"
+  }
+}

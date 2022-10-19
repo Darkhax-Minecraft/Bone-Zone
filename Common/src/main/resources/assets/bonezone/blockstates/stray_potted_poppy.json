@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "bonezone:block/skullpot/stray/poppy"
+    },
+    "facing=south": {
+      "model": "bonezone:block/skullpot/stray/poppy"
+,      "y": 180
+    },
+    "facing=east": {
+      "model": "bonezone:block/skullpot/stray/poppy"
+,      "y": 90
+    },
+    "facing=west": {
+      "model": "bonezone:block/skullpot/stray/poppy"
+,      "y": 270
+    }
+  }
+}

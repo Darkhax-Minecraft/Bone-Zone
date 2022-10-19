@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "bonezone:block/skullpot/stray/pink_tulip"
+    },
+    "facing=south": {
+      "model": "bonezone:block/skullpot/stray/pink_tulip"
+,      "y": 180
+    },
+    "facing=east": {
+      "model": "bonezone:block/skullpot/stray/pink_tulip"
+,      "y": 90
+    },
+    "facing=west": {
+      "model": "bonezone:block/skullpot/stray/pink_tulip"
+,      "y": 270
+    }
+  }
+}

@@ -9,5 +9,6 @@
     "head_top": "minecraft:entity/skeleton/skeleton",
     "head_bottom": "minecraft:entity/skeleton/skeleton",
     "plant": "minecraft:block/red_mushroom"
+
   }
 }

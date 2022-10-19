@@ -1,3 +1,12 @@
 {
-  "parent": "bonezone:block/skullpot/mob_head_pot"
+  "parent": "bonezone:block/skullpot/mob_head_pot",
+  "textures": {
+    "particle": "minecraft:entity/skeleton/skeleton",
+    "head_north": "minecraft:entity/skeleton/skeleton",
+    "head_east": "minecraft:entity/skeleton/skeleton",
+    "head_south": "minecraft:entity/skeleton/skeleton",
+    "head_west": "minecraft:entity/skeleton/skeleton",
+    "head_top": "minecraft:entity/skeleton/skeleton",
+    "head_bottom": "minecraft:entity/skeleton/skeleton"
+  }
 }

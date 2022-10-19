@@ -4,16 +4,16 @@
       "model": "bonezone:block/skullpot/creeper/empty_flipped"
     },
     "facing=south": {
-      "model": "bonezone:block/skullpot/creeper/empty_flipped",
-      "y": 180
+      "model": "bonezone:block/skullpot/creeper/empty_flipped"
+,      "y": 180
     },
     "facing=east": {
-      "model": "bonezone:block/skullpot/creeper/empty_flipped",
-      "y": 90
+      "model": "bonezone:block/skullpot/creeper/empty_flipped"
+,      "y": 90
     },
     "facing=west": {
-      "model": "bonezone:block/skullpot/creeper/empty_flipped",
-      "y": 270
+      "model": "bonezone:block/skullpot/creeper/empty_flipped"
+,      "y": 270
     }
   }
 }

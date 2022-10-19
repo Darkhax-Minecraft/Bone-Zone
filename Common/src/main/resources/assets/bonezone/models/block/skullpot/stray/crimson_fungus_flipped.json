@@ -1,0 +1,14 @@
+{
+  "parent": "bonezone:block/skullpot/flipped_mob_head_pot_cross",
+  "textures": {
+    "particle": "minecraft:entity/skeleton/stray",
+    "head_north": "minecraft:entity/skeleton/stray",
+    "head_east": "minecraft:entity/skeleton/stray",
+    "head_south": "minecraft:entity/skeleton/stray",
+    "head_west": "minecraft:entity/skeleton/stray",
+    "head_top": "minecraft:entity/skeleton/stray",
+    "head_bottom": "minecraft:entity/skeleton/stray",
+    "plant": "minecraft:block/crimson_fungus"
+
+  }
+}

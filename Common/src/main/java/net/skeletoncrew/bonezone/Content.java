@@ -7,11 +7,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
-import net.skeletoncrew.bonezone.block.BasicBoneBlock;
-import net.skeletoncrew.bonezone.block.BoneCarverBlock;
-import net.skeletoncrew.bonezone.block.BoneLadderBlock;
-import net.skeletoncrew.bonezone.block.CustomPotBlock;
-import net.skeletoncrew.bonezone.block.SpineSkullBlock;
+import net.skeletoncrew.bonezone.block.*;
 import net.skeletoncrew.bonezone.recipe.bonecarving.BonecarvingRecipeSerializer;
 import net.skeletoncrew.bonezone.recipe.mobsanding.MobsandingRecipeSerializer;
 import net.skeletoncrew.bonezone.ui.bonecarving.BonecarverMenu;
@@ -26,6 +22,15 @@ public class Content extends RegistryDataProvider {
 
 //        UglyDataGen.generateModels("creeper", "minecraft:entity/skeleton/skeleton", "skeleton/skeleton", "bonezone:block/skullpot/creeper");
 //        UglyDataGen.generateCrossBlockstate("creeper");
+//
+//        UglyDataGen.generateModels("skeleton", "minecraft:entity/skeleton/skeleton", "skeleton/skeleton", "minecraft:entity/skeleton/skeleton");
+//        UglyDataGen.generateCrossBlockstate("skeleton");
+//
+//        UglyDataGen.generateModels("wither", "minecraft:entity/skeleton/wither_skeleton", "skeleton/wither_skeleton", "minecraft:entity/skeleton/wither_skeleton");
+//        UglyDataGen.generateCrossBlockstate("wither");
+
+//        UglyDataGen.generateModels("stray", "minecraft:entity/skeleton/stray", "skeleton/stray", "minecraft:entity/skeleton/stray");
+//        UglyDataGen.generateCrossBlockstate("stray");
 
         this.withCreativeTab(() -> Items.SKELETON_SKULL);
         this.withAutoItemBlocks();
@@ -52,6 +57,8 @@ public class Content extends RegistryDataProvider {
         this.createPotsFor("skeleton", Constants.SKELETON_POT_TYPES, false);
         this.createPotsFor("wither", Constants.WITHER_POT_TYPES, false);
         this.createPotsFor("creeper", Constants.CREEPER_POT_TYPES, false);
+        this.createPotsFor("stray", Constants.CREEPER_POT_TYPES, false);
+        this.createPotsFor("stray", Constants.FLIPPED_SKELETON_POT_TYPES, true);
         this.createPotsFor("skeleton", Constants.FLIPPED_SKELETON_POT_TYPES, true);
         this.createPotsFor("wither", Constants.FLIPPED_WITHER_POT_TYPES, true);
         this.createPotsFor("creeper", Constants.FLIPPED_CREEPER_POT_TYPES, true);

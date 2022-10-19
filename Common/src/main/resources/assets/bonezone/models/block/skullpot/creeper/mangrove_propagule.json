@@ -7,6 +7,6 @@
     "head_south": "minecraft:entity/skeleton/skeleton",
     "head_west": "minecraft:entity/skeleton/skeleton",
     "head_top": "minecraft:entity/skeleton/skeleton",
-    "head_bottom": "minecraft:entity/skeleton/skeleton",
+    "head_bottom": "minecraft:entity/skeleton/skeleton"
   }
 }

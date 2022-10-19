@@ -39,13 +39,17 @@ public class UglyDataGen {
     };
 
     private static List<String> ALL = new ArrayList<>();
+    private static final String EMPTY = "empty";
 
     static {
         ALL.addAll(Arrays.stream(CROSS_PLANTS).toList());
         ALL.add("bamboo");
         ALL.add("mangrove_propagule");
         ALL.add("cactus");
-        ALL.add("azelea");
+        ALL.add("azalea");
+        ALL.add(EMPTY); //empty
+        ALL.add("flowering_azalea");
+        ALL.add("fern");
     }
 
     public static void generateCrossBlockstate(String prefix) {
@@ -55,8 +59,15 @@ public class UglyDataGen {
         for (String type : ALL) {
             for (int i = 0; i < 2; i++) {
                 String flip = (i == 0 ? "" : "_flipped");
-                try (FileWriter writer = new FileWriter(new File(blockstatesDir, prefix + "_potted_" + type + flip + ".json"))) {
-
+                String empty = "";
+                String pot = "_potted_";
+                if (type.equals(EMPTY)) {
+                    empty = "empty_";
+                    pot = "_pot";
+                    type = "";
+                }
+                try (FileWriter writer = new FileWriter(new File(blockstatesDir, empty + prefix + pot + type + flip + ".json"))) {
+                    if (type.isBlank()) type = EMPTY;
                     writer.append("{\n" +
                             "  \"variants\": {\n" +
                             "    \"facing=north\": {\n" +
@@ -94,9 +105,12 @@ public class UglyDataGen {
             make(modelsDir, type, particle, texEntity, face, "mob_head_pot_cross", "    \"plant\": \"minecraft:block/" + type + "\"\n");
         }
 
-        make(modelsDir, "azelea", particle, texEntity, face, "mob_head_pot_azelea_bush");
+        make(modelsDir, "azalea", particle, texEntity, face, "mob_head_pot_azalea_bush", "\"top\": \"minecraft:block/potted_azalea_bush_top\",\n", "\"side\": \"minecraft:block/potted_azalea_bush_side\"");
         make(modelsDir, "bamboo", particle, texEntity, face, "mob_head_pot_bamboo");
         make(modelsDir, "cactus", particle, texEntity, face, "mob_head_pot_cactus");
+        make(modelsDir, "empty", particle, texEntity, face, "mob_head_pot");
+        make(modelsDir, "fern", particle, texEntity, face, "mob_head_pot_cross_tinted");
+        make(modelsDir, "flowering_azalea", particle, texEntity, face, "mob_head_pot_azalea_bush", "\"top\": \"minecraft:block/potted_flowering_azalea_bush_top\",\n", "\"side\": \"minecraft:block/potted_flowering_azalea_bush_side\"");
         make(modelsDir, "mangrove_propagule", particle, texEntity, face, "mob_head_pot_mangrove_propagule");
 
     }
@@ -113,12 +127,15 @@ public class UglyDataGen {
                         "    \"head_south\": \"" + texEntity + "\",\n" +
                         "    \"head_west\": \"" + texEntity + "\",\n" +
                         "    \"head_top\": \"" + texEntity + "\",\n" +
-                        "    \"head_bottom\": \"" + texEntity + "\",\n");
+                        "    \"head_bottom\": \"" + texEntity + "\"");
                 if (extra != null && extra.length > 0) {
-                    for (String s : extra)
+                    for (String s : extra) {
+                        writer.append(",\n");
                         writer.append(s);
+                    }
                 }
-                writer.append("  }\n}"); ;
+                writer.append("\n");
+                writer.append("  }\n}");
 
             } catch (IOException e) {
 
