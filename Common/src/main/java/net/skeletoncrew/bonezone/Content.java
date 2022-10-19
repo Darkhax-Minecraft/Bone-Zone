@@ -48,9 +48,9 @@ public class Content extends RegistryDataProvider {
         this.createPotsFor("wither", Constants.WITHER_POT_TYPES, false);
         this.createPotsFor("creeper", Constants.CREEPER_POT_TYPES, false);
 
-        this.createPotsFor("skeleton", Constants.SKELETON_POT_TYPES, true);
-        this.createPotsFor("wither", Constants.WITHER_POT_TYPES, true);
-        this.createPotsFor("creeper", Constants.CREEPER_POT_TYPES, true);
+        this.createPotsFor("skeleton", Constants.FLIPPED_SKELETON_POT_TYPES, true);
+        this.createPotsFor("wither", Constants.FLIPPED_WITHER_POT_TYPES, true);
+        this.createPotsFor("creeper", Constants.FLIPPED_CREEPER_POT_TYPES, true);
 
         // Items
         // TODO Only if we have non-block items
