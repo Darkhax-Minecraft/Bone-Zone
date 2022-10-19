@@ -26,6 +26,10 @@ public class Constants {
     public static final Map<Item, CustomPotBlock> WITHER_POT_TYPES = new IdentityHashMap<>();
     public static final Map<Item, CustomPotBlock> CREEPER_POT_TYPES = new IdentityHashMap<>();
 
+    public static final Map<Item, CustomPotBlock> FLIPPED_SKELETON_POT_TYPES = new IdentityHashMap<>();
+    public static final Map<Item, CustomPotBlock> FLIPPED_WITHER_POT_TYPES = new IdentityHashMap<>();
+    public static final Map<Item, CustomPotBlock> FLIPPED_CREEPER_POT_TYPES = new IdentityHashMap<>();
+
     // Menus
     public static final CachedSupplier<MenuType<?>> BONECARVER_MENU = CachedSupplier.cache(() -> Registry.MENU.get(new ResourceLocation(Constants.MOD_ID, "bonecarver")));
 

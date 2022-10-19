@@ -1,0 +1,6 @@
+{
+  "parent": "bonezone:block/skullpot/flipped_mob_head_pot",
+  "textures": {
+    "head_north": "bonezone:block/skullpot/creeper"
+  }
+}
