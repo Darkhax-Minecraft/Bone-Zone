@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/ladder",
+  "textures": {
+    "particle": "minecraft:block/coal_block",
+    "texture": "bonezone:block/wither_bone_ladder"
+  }
+}

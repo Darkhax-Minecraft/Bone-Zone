@@ -7,6 +7,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
+import net.skeletoncrew.bonezone.block.BasicBoneBlock;
 import net.skeletoncrew.bonezone.block.BoneCarverBlock;
 import net.skeletoncrew.bonezone.block.BoneLadderBlock;
 import net.skeletoncrew.bonezone.block.CustomPotBlock;
@@ -36,14 +37,17 @@ public class Content extends RegistryDataProvider {
         this.recipeSerializers.add(MobsandingRecipeSerializer::new, "mobsanding");
 
         // Blocks
-        this.blocks.add(BoneLadderBlock::new, "bone_ladder");
         this.blocks.add(BoneCarverBlock::new, "bonecarver");
+        this.blocks.add(BoneLadderBlock::new, "bone_ladder");
+        this.blocks.add(BoneLadderBlock::new, "wither_bone_ladder");
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_goat");
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_deer");
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_bird");
         this.createPotsFor("skeleton", Constants.SKELETON_POT_TYPES);
         this.createPotsFor("wither", Constants.WITHER_POT_TYPES);
         this.createPotsFor("creeper", Constants.CREEPER_POT_TYPES);
+        this.blocks.add(BasicBoneBlock::bone, "bone_mosaic");
+        this.blocks.add(BasicBoneBlock::wither, "wither_bone_mosaic");
 
         // Items
         // TODO Only if we have non-block items

@@ -2,13 +2,17 @@
   "itemGroup.bonezone.creative_tab": "Bone Zone",
 
   "_blocks": "Block Names",
-  "block.bonezone.bone_ladder": "Bone Ladder",
   "block.bonezone.bonecarver": "Bonecarver",
   "block.bonezone.spinal_skull_deer": "Deer Skull Mask",
   "block.bonezone.spinal_skull_goat": "Goat Skull Mask",
   "block.bonezone.spinal_skull_bird": "Bird Skull Mask",
   "block.bonezone.empty_skeleton_pot": "Skeleton Skull Pot",
   "block.bonezone.empty_wither_pot": "Wither Skull Pot",
+  "block.bonezone.bone_ladder": "Bone Ladder",
+  "block.bonezone.wither_bone_ladder": "Wither Bone Ladder",
+  "block.bonezone.bone_mozaic": "Bone Mosaic",
+  "block.bonezone.wither_bone_mozaic": "Wither Bone Mosaic",
+
 
   "_item": "Item Names",
 
