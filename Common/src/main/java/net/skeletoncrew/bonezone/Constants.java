@@ -36,5 +36,9 @@ public class Constants {
     // Biomecolored plant pots
     public static final CachedSupplier<Block> SKELETON_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "skeleton_potted_fern")));
     public static final CachedSupplier<Block> WITHER_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "wither_potted_fern")));
+    public static final CachedSupplier<Block> CREEPER_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "creeper_potted_fern")));
+    public static final CachedSupplier<Block> FLIPPED_SKELETON_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "skeleton_potted_fern_flipped")));
+    public static final CachedSupplier<Block> FLIPPED_WITHER_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "wither_potted_fern_flipped")));
+    public static final CachedSupplier<Block> FLIPPED_CREEPER_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "creeper_potted_fern_flipped")));
 
 }

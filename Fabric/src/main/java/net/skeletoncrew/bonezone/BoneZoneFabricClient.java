@@ -20,6 +20,6 @@ public class BoneZoneFabricClient implements ClientModInitializer {
 
         // Block Colors
         final BlockColor plantColorProvider = (state, worldLevel, pos, i) -> worldLevel != null && pos != null ? BiomeColors.getAverageGrassColor(worldLevel, pos) : GrassColor.get(0.5, 1.0);
-        ColorProviderRegistry.BLOCK.register(plantColorProvider, Constants.SKELETON_FERN.get(), Constants.WITHER_FERN.get());
+        ColorProviderRegistry.BLOCK.register(plantColorProvider, Constants.SKELETON_FERN.get(), Constants.WITHER_FERN.get(), Constants.CREEPER_FERN.get(), Constants.FLIPPED_SKELETON_FERN.get(), Constants.FLIPPED_WITHER_FERN.get(), Constants.FLIPPED_CREEPER_FERN.get());
     }
 }
