@@ -19,7 +19,6 @@ public class Content extends RegistryDataProvider {
     public Content() {
 
         super(Constants.MOD_ID);
-
 //        UglyDataGen.generateModels("creeper", "minecraft:entity/skeleton/skeleton", "skeleton/skeleton", "bonezone:block/skullpot/creeper");
 //        UglyDataGen.generateCrossBlockstate("creeper");
 //
@@ -28,7 +27,7 @@ public class Content extends RegistryDataProvider {
 //
 //        UglyDataGen.generateModels("wither", "minecraft:entity/skeleton/wither_skeleton", "skeleton/wither_skeleton", "minecraft:entity/skeleton/wither_skeleton");
 //        UglyDataGen.generateCrossBlockstate("wither");
-
+//
 //        UglyDataGen.generateModels("stray", "minecraft:entity/skeleton/stray", "skeleton/stray", "minecraft:entity/skeleton/stray");
 //        UglyDataGen.generateCrossBlockstate("stray");
 
@@ -53,11 +52,13 @@ public class Content extends RegistryDataProvider {
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_bird");
         this.blocks.add(BasicBoneBlock::bone, "bone_mosaic");
         this.blocks.add(BasicBoneBlock::wither, "wither_bone_mosaic");
+        this.blocks.add(CarcassBlock::new, "carcass");
 
         this.createPotsFor("skeleton", Constants.SKELETON_POT_TYPES, false);
         this.createPotsFor("wither", Constants.WITHER_POT_TYPES, false);
         this.createPotsFor("creeper", Constants.CREEPER_POT_TYPES, false);
         this.createPotsFor("stray", Constants.CREEPER_POT_TYPES, false);
+
         this.createPotsFor("stray", Constants.FLIPPED_SKELETON_POT_TYPES, true);
         this.createPotsFor("skeleton", Constants.FLIPPED_SKELETON_POT_TYPES, true);
         this.createPotsFor("wither", Constants.FLIPPED_WITHER_POT_TYPES, true);

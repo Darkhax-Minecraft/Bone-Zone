@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=north,half=top": {
+      "model": "bonezone:block/carcass/carcass_front",
+      "y": 180
+    },
+    "facing=south,half=top": {
+      "model": "bonezone:block/carcass/carcass_front",
+      "y": 0
+    },
+    "facing=east,half=top": {
+      "model": "bonezone:block/carcass/carcass_front",
+      "y": 270
+    },
+    "facing=west,half=top": {
+      "model": "bonezone:block/carcass/carcass_front",
+      "y": 90
+    },
+    "facing=north,half=bottom": {
+      "model": "bonezone:block/carcass/carcass_end",
+      "y": 180
+    },
+    "facing=south,half=bottom": {
+      "model": "bonezone:block/carcass/carcass_end",
+      "y": 0
+    },
+    "facing=east,half=bottom": {
+      "model": "bonezone:block/carcass/carcass_end",
+      "y": 270
+    },
+    "facing=west,half=bottom": {
+      "model": "bonezone:block/carcass/carcass_end",
+      "y": 90
+    }
+  }
+}

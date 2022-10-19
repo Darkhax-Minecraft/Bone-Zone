@@ -1,0 +1,33 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"top": "bonezone:block/carcass/top_end",
+		"end": "bonezone:block/carcass/end",
+		"side": "bonezone:block/carcass/side_end",
+		"particle": "block/bone_block_side"
+	},
+	"elements": [
+		{
+			"name": "carcass_end",
+			"from": [2, 0, 0],
+			"to": [14, 12, 16],
+			"faces": {
+				"east": {"uv": [16, 4, 0, 16], "texture": "#side"},
+				"south": {"uv": [2, 0, 14, 12], "texture": "#end"},
+				"west": {"uv": [0, 4, 16, 16], "texture": "#side"},
+				"up": {"uv": [2, 0, 14, 16], "texture": "#top"}
+			}
+		},
+		{
+			"name": "carcass_end_inside",
+			"from": [14, 0, 0],
+			"to": [2, 12, 16],
+			"faces": {
+				"east": {"uv": [16, 4, 0, 16], "texture": "#side"},
+				"south": {"uv": [14, 0, 2, 12], "texture": "#end"},
+				"west": {"uv": [0, 4, 16, 16], "texture": "#side"},
+				"up": {"uv": [3, 0, 13, 16], "texture": "#top"}
+			}
+		}
+	]
+}

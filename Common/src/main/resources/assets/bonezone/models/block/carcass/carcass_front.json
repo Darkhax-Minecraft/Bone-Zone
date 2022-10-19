@@ -1,0 +1,36 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"top": "bonezone:block/carcass/top",
+		"bottom": "bonezone:block/carcass/bottom",
+		"side": "bonezone:block/carcass/side",
+		"front": "bonezone:block/carcass/front",
+		"particle": "block/bone_block_side"
+	},
+	"elements": [
+		{
+			"name": "carcass_front",
+			"from": [2, 0.1, 0],
+			"to": [14, 12.1, 16],
+			"faces": {
+				"north": {"uv": [2, 0, 14, 12], "texture": "#front"},
+				"east": {"uv": [0, 0, 16, 12], "rotation": 180, "texture": "#side"},
+				"west": {"uv": [0, 0, 16, 12], "texture": "#side"},
+				"up": {"uv": [2, 0, 14, 16], "texture": "#top"},
+				"down": {"uv": [2, 0, 14, 16], "rotation": 180, "texture": "#bottom"}
+			}
+		},
+		{
+			"name": "carcass_front_inside",
+			"from": [14, 0.1, 0],
+			"to": [2, 12.1, 16],
+			"faces": {
+				"north": {"uv": [2, 0, 14, 12], "texture": "#front"},
+				"east": {"uv": [0, 0, 16, 12], "rotation": 180, "texture": "#side"},
+				"west": {"uv": [0, 0, 16, 12], "texture": "#side"},
+				"up": {"uv": [3, 0, 13, 16], "texture": "#top"},
+				"down": {"uv": [2, 0, 14, 16], "rotation": 180, "texture": "#bottom"}
+			}
+		}
+	]
+}
