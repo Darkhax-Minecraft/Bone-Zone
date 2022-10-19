@@ -3,6 +3,9 @@ package net.skeletoncrew.bonezone;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class UglyDataGen {
 
@@ -35,99 +38,89 @@ public class UglyDataGen {
             "red_tulip"
     };
 
+    private static List<String> ALL = new ArrayList<>();
+
+    static {
+        ALL.addAll(Arrays.stream(CROSS_PLANTS).toList());
+        ALL.add("bamboo");
+        ALL.add("mangrove_propagule");
+        ALL.add("cactus");
+        ALL.add("azelea");
+    }
+
     public static void generateCrossBlockstate(String prefix) {
 
         File blockstatesDir = new File("output/assets/bonezone/blockstates");
         blockstatesDir.mkdirs();
+        for (String type : ALL) {
+            for (int i = 0; i < 2; i++) {
+                String flip = (i == 0 ? "" : "_flipped");
+                try (FileWriter writer = new FileWriter(new File(blockstatesDir, prefix + "_potted_" + type + flip + ".json"))) {
 
-        for (String type : CROSS_PLANTS) {
+                    writer.append("{\n" +
+                            "  \"variants\": {\n" +
+                            "    \"facing=north\": {\n" +
+                            "      \"model\": \"bonezone:block/skullpot/" + prefix + "/" + type + flip + "\"\n" +
+                            "    },\n" +
+                            "    \"facing=south\": {\n" +
+                            "      \"model\": \"bonezone:block/skullpot/" + prefix + "/" + type + flip + "\"\n," +
+                            "      \"y\": 180\n" +
+                            "    },\n" +
+                            "    \"facing=east\": {\n" +
+                            "      \"model\": \"bonezone:block/skullpot/" + prefix + "/" + type + flip + "\"\n," +
+                            "      \"y\": 90\n" +
+                            "    },\n" +
+                            "    \"facing=west\": {\n" +
+                            "      \"model\": \"bonezone:block/skullpot/" + prefix + "/" + type + flip + "\"\n," +
+                            "      \"y\": 270\n" +
+                            "    }\n" +
+                            "  }\n" +
+                            "}");
+                } catch (IOException e) {
 
-            try (FileWriter writer = new FileWriter(new File(blockstatesDir, prefix + "_potted_" + type + ".json"))) {
-
-                writer.append("{\n" +
-                        "  \"variants\": {\n" +
-                        "    \"facing=north\": {\n" +
-                        "      \"model\": \"bonezone:block/skullpot/" + prefix + "/" + type + "\"\n" +
-                        "    },\n" +
-                        "    \"facing=south\": {\n" +
-                        "      \"model\": \"bonezone:block/skullpot/" + prefix + "/" + type + "\"\n," +
-                        "      \"y\": 180\n" +
-                        "    },\n" +
-                        "    \"facing=east\": {\n" +
-                        "      \"model\": \"bonezone:block/skullpot/" + prefix + "/" + type + "\"\n," +
-                        "      \"y\": 90\n" +
-                        "    },\n" +
-                        "    \"facing=west\": {\n" +
-                        "      \"model\": \"bonezone:block/skullpot/" + prefix + "/" + type + "\"\n," +
-                        "      \"y\": 270\n" +
-                        "    }\n" +
-                        "  }\n" +
-                        "}");
-            }
-
-            catch (IOException e) {
-
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
-    public static void generateCrossModels(String prefix) {
-
-        File modelsDir = new File("output/assets/bonezone/models/block/skullpot/" + prefix);
-        modelsDir.mkdirs();
-
-        for (String type : CROSS_PLANTS) {
-
-            try (FileWriter writer = new FileWriter(new File(modelsDir, type + ".json"))) {
-
-                writer.append("{\n" +
-                        "  \"parent\": \"bonezone:block/skullpot/mob_head_pot_cross\",\n" +
-                        "  \"textures\": {\n" +
-                        "    \"particle\": \"minecraft:block/" + "coal_block" + "\"\n" +
-                        "    \"head_north\": \"minecraft:block/" + type + "\"\n" +
-                        "    \"head_east\": \"minecraft:block/" + type + "\"\n" +
-                        "    \"head_south\": \"minecraft:block/" + type + "\"\n" +
-                        "    \"head_west\": \"minecraft:block/" + type + "\"\n" +
-                        "    \"head_top\": \"minecraft:block/" + type + "\"\n" +
-                        "    \"head_bottom\": \"minecraft:block/" + type + "\"\n" +
-                        "    \"plant\": \"minecraft:block/" + type + "\"\n" +
-                        "  }\n" +
-                        "}");
-            }
-
-            catch (IOException e) {
-
-                throw new RuntimeException(e);
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
 
-    public static void generateCrossModels(String prefix, String particle, String entity, String face) {
-
+    public static void generateModels(String prefix, String particle, String entity, String face) {
         File modelsDir = new File("output/assets/bonezone/models/block/skullpot/" + prefix);
         modelsDir.mkdirs();
 
+        String texEntity = "minecraft:entity/" + entity;
+
         for (String type : CROSS_PLANTS) {
+            make(modelsDir, type, particle, texEntity, face, "mob_head_pot_cross", "    \"plant\": \"minecraft:block/" + type + "\"\n");
+        }
 
-            try (FileWriter writer = new FileWriter(new File(modelsDir, type + ".json"))) {
+        make(modelsDir, "azelea", particle, texEntity, face, "mob_head_pot_azelea_bush");
+        make(modelsDir, "bamboo", particle, texEntity, face, "mob_head_pot_bamboo");
+        make(modelsDir, "cactus", particle, texEntity, face, "mob_head_pot_cactus");
+        make(modelsDir, "mangrove_propagule", particle, texEntity, face, "mob_head_pot_mangrove_propagule");
 
+    }
+
+    private static void make(File modelsDir, String type, String particle, String texEntity, String face, String model, String... extra) {
+        for (int i = 0; i < 2; i++) {
+            try (FileWriter writer = new FileWriter(new File(modelsDir, type + (i == 0 ? "" : "_flipped") + ".json"))) {
                 writer.append("{\n" +
-                        "  \"parent\": \"bonezone:block/skullpot/mob_head_pot_cross\",\n" +
+                        "  \"parent\": \"bonezone:block/skullpot/" + (i == 0 ? "" : "flipped_") + model + "\",\n" +
                         "  \"textures\": {\n" +
-                        "    \"particle\": \"minecraft:block/" + particle + "\",\n" +
-                        "    \"head_north\": \"minecraft:entity/" + entity + "\",\n" +
-                        "    \"head_east\": \"minecraft:entity/" + entity + "\",\n" +
-                        "    \"head_south\": \"minecraft:entity/" + entity + "\",\n" +
-                        "    \"head_west\": \"minecraft:entity/" + entity + "\",\n" +
-                        "    \"head_top\": \"minecraft:entity/" + entity + "\",\n" +
-                        "    \"head_bottom\": \"minecraft:entity/" + entity + "\",\n" +
-                        "    \"plant\": \"minecraft:block/" + type + "\"\n" +
-                        "  }\n" +
-                        "}");
-            }
+                        "    \"particle\": \"" + particle + "\",\n" +
+                        "    \"head_north\": \"" + face + "\",\n" +
+                        "    \"head_east\": \"" + texEntity + "\",\n" +
+                        "    \"head_south\": \"" + texEntity + "\",\n" +
+                        "    \"head_west\": \"" + texEntity + "\",\n" +
+                        "    \"head_top\": \"" + texEntity + "\",\n" +
+                        "    \"head_bottom\": \"" + texEntity + "\",\n");
+                if (extra != null && extra.length > 0) {
+                    for (String s : extra)
+                        writer.append(s);
+                }
+                writer.append("  }\n}"); ;
 
-            catch (IOException e) {
+            } catch (IOException e) {
 
                 throw new RuntimeException(e);
             }
