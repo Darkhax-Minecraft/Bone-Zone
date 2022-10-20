@@ -1,0 +1,7 @@
+{
+  "config": {
+    "blockIds": "#minecraft:dirt",
+    "spinalSkull": "bonezone:spinal_skull_bird"
+  },
+  "type": "bonezone:carcass_bird"
+}

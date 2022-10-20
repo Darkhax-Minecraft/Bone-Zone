@@ -1,0 +1,12 @@
+{
+  "config": {
+    "blockIds": [
+      "minecraft:sand",
+      "minecraft:red_sand",
+      "minecraft:grass_block",
+      "minecraft:sandstone"
+    ],
+    "spinalSkull": "bonezone:spinal_skull_deer"
+  },
+  "type": "bonezone:carcass_deer"
+}
