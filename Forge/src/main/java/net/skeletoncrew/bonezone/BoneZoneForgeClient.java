@@ -31,6 +31,6 @@ public class BoneZoneForgeClient {
 
         // Block Colors
         final BlockColor plantColorProvider = (state, worldLevel, pos, i) -> worldLevel != null && pos != null ? BiomeColors.getAverageGrassColor(worldLevel, pos) : GrassColor.get(0.5, 1.0);
-        event.register(plantColorProvider, Constants.SKELETON_FERN.get(), Constants.WITHER_FERN.get(), Constants.CREEPER_FERN.get(), Constants.FLIPPED_SKELETON_FERN.get(), Constants.FLIPPED_WITHER_FERN.get(), Constants.FLIPPED_CREEPER_FERN.get());
+        event.register(plantColorProvider, Constants.SKELETON_FERN.get(), Constants.WITHER_FERN.get(), Constants.CREEPER_FERN.get(), Constants.FLIPPED_SKELETON_FERN.get(), Constants.FLIPPED_WITHER_FERN.get(), Constants.FLIPPED_CREEPER_FERN.get(), Constants.STRAY_FERN.get(), Constants.FLIPPED_STRAY_FERN.get());
     }
 }
