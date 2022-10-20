@@ -152,6 +152,11 @@ public class CustomPotBlock extends Block implements IBindRenderLayer, IItemBloc
         return block instanceof CustomPotBlock pot && pot.isEmpty();
     }
 
+    public Item getContainedItem() {
+
+        return this.contained;
+    }
+
     /**
      * Creates a blockstate of the current block that matches the state of an existing blockstate. For example when
      * planting a flower in the pot we change block but copy the waterlogged and rotation.
@@ -169,7 +174,7 @@ public class CustomPotBlock extends Block implements IBindRenderLayer, IItemBloc
      *
      * @return The empty variant of the current pot type.
      */
-    private CustomPotBlock getEmptyBlock() {
+    public CustomPotBlock getEmptyBlock() {
 
         return this.variants.get(Items.AIR);
     }
@@ -179,7 +184,7 @@ public class CustomPotBlock extends Block implements IBindRenderLayer, IItemBloc
      *
      * @return If the pot is empty.
      */
-    private boolean isEmpty() {
+    public boolean isEmpty() {
 
         return this.contained == Items.AIR;
     }

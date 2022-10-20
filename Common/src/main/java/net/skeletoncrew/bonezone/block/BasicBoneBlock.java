@@ -9,6 +9,7 @@ public class BasicBoneBlock extends Block {
 
     public static final Properties BONE = Properties.of(Material.STONE, MaterialColor.SAND).requiresCorrectToolForDrops().strength(2.0F).sound(SoundType.BONE_BLOCK);
     public static final Properties WITHER = Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(2.0F).sound(SoundType.BONE_BLOCK);
+    public static final Properties STRAY = Properties.of(Material.STONE, MaterialColor.SNOW).requiresCorrectToolForDrops().strength(2.0F).sound(SoundType.BONE_BLOCK);
 
     public BasicBoneBlock(Properties properties) {
 
@@ -23,5 +24,10 @@ public class BasicBoneBlock extends Block {
     public static Block wither() {
 
         return new BasicBoneBlock(WITHER);
+    }
+
+    public static Block stray() {
+
+        return new BasicBoneBlock(STRAY);
     }
 }
