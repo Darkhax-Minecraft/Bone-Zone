@@ -11,12 +11,15 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.skeletoncrew.bonezone.Constants;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class AbstractBonecarvingRecipe extends RecipeBaseData<Container> {
 
@@ -107,16 +110,9 @@ public abstract class AbstractBonecarvingRecipe extends RecipeBaseData<Container
      */
     public static List<AbstractBonecarvingRecipe> findRecipes(Player player, Level worldLevel, BlockPos pos, ItemStack input) {
 
-        final List<AbstractBonecarvingRecipe> validRecipes = new ArrayList<>();
-
-        for (final AbstractBonecarvingRecipe recipe : worldLevel.getRecipeManager().getAllRecipesFor(RECIPE_TYPE.get())) {
-
-            if (recipe.canCraft(player, worldLevel, pos, input)) {
-
-                validRecipes.add(recipe);
-            }
-        }
-
-        return validRecipes;
+        return worldLevel.getRecipeManager().getAllRecipesFor(RECIPE_TYPE.get()).stream()
+                .filter(recipe -> recipe.canCraft(player, worldLevel, pos, input))
+                .sorted(Comparator.comparing(recipe -> recipe.getResultItem().getDescriptionId()))
+                .collect(Collectors.toList());
     }
 }
