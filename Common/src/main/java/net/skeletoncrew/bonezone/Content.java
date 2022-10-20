@@ -2,20 +2,21 @@ package net.skeletoncrew.bonezone;
 
 import net.darkhax.bookshelf.api.Services;
 import net.darkhax.bookshelf.api.registry.RegistryDataProvider;
-import net.minecraft.core.Registry;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
-import net.skeletoncrew.bonezone.block.*;
+import net.skeletoncrew.bonezone.block.BasicBoneBlock;
+import net.skeletoncrew.bonezone.block.BoneCarverBlock;
+import net.skeletoncrew.bonezone.block.BoneLadderBlock;
+import net.skeletoncrew.bonezone.block.CarcassBlock;
+import net.skeletoncrew.bonezone.block.CustomPotBlock;
+import net.skeletoncrew.bonezone.block.SpineSkullBlock;
 import net.skeletoncrew.bonezone.recipe.bonecarving.BonecarvingRecipeSerializer;
 import net.skeletoncrew.bonezone.recipe.mobsanding.MobsandingRecipeSerializer;
 import net.skeletoncrew.bonezone.ui.bonecarving.BonecarverMenu;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Map;
 
 public class Content extends RegistryDataProvider {
@@ -58,6 +59,9 @@ public class Content extends RegistryDataProvider {
         this.blocks.add(BasicBoneBlock::bone, "bone_mosaic");
         this.blocks.add(BasicBoneBlock::wither, "wither_bone_mosaic");
         this.blocks.add(BasicBoneBlock::stray, "stray_bone_mosaic");
+        this.blocks.add(BasicBoneBlock::bone, "bone_bricks");
+        this.blocks.add(BasicBoneBlock::wither, "wither_bone_bricks");
+        this.blocks.add(BasicBoneBlock::stray, "stray_bone_bricks");
         this.blocks.add(CarcassBlock::new, "carcass");
 
         this.createPotsFor("skeleton", Constants.SKELETON_POT_TYPES, false);
@@ -66,8 +70,8 @@ public class Content extends RegistryDataProvider {
         this.createPotsFor("wither", Constants.FLIPPED_WITHER_POT_TYPES, true);
         this.createPotsFor("creeper", Constants.CREEPER_POT_TYPES, false);
         this.createPotsFor("creeper", Constants.FLIPPED_CREEPER_POT_TYPES, true);
-        this.createPotsFor("stray", Constants.CREEPER_POT_TYPES, false);
-        this.createPotsFor("stray", Constants.FLIPPED_SKELETON_POT_TYPES, true);
+        this.createPotsFor("stray", Constants.STRAY_POT_TYPES, false);
+        this.createPotsFor("stray", Constants.FLIPPED_STRAY_POT_TYPES, true);
 
         // Items
         // TODO Only if we have non-block items
