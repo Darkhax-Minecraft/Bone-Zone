@@ -16,8 +16,10 @@
   "block.bonezone.empty_stray_pot_flipped": "Flipped Stray Skull Pot",
   "block.bonezone.bone_ladder": "Bone Ladder",
   "block.bonezone.wither_bone_ladder": "Wither Bone Ladder",
+  "block.bonezone.stray_bone_ladder": "Stray Bone Ladder",
   "block.bonezone.bone_mosaic": "Bone Mosaic",
   "block.bonezone.wither_bone_mosaic": "Wither Bone Mosaic",
+  "block.bonezone.stray_bone_mosaic": "Stray Bone Mosaic",
   "block.bonezone.carcass": "Carcass",
 
   "_item": "Item Names",
