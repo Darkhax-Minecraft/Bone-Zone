@@ -8,11 +8,17 @@
   "block.bonezone.spinal_skull_bird": "Bird Skull Mask",
   "block.bonezone.empty_skeleton_pot": "Skeleton Skull Pot",
   "block.bonezone.empty_wither_pot": "Wither Skull Pot",
+  "block.bonezone.empty_creeper_pot": "Creeper Skull Pot",
+  "block.bonezone.empty_stray_pot": "Stray Skull Pot",
+  "block.bonezone.empty_skeleton_pot_flipped": "Flipped Skeleton Skull Pot",
+  "block.bonezone.empty_wither_pot_flipped": "Flipped Wither Skull Pot",
+  "block.bonezone.empty_creeper_pot_flipped": "Flipped Creeper Skull Pot",
+  "block.bonezone.empty_stray_pot_flipped": "Flipped Stray Skull Pot",
   "block.bonezone.bone_ladder": "Bone Ladder",
   "block.bonezone.wither_bone_ladder": "Wither Bone Ladder",
-  "block.bonezone.bone_mozaic": "Bone Mosaic",
-  "block.bonezone.wither_bone_mozaic": "Wither Bone Mosaic",
-
+  "block.bonezone.bone_mosaic": "Bone Mosaic",
+  "block.bonezone.wither_bone_mosaic": "Wither Bone Mosaic",
+  "block.bonezone.carcass": "Carcass",
 
   "_item": "Item Names",
 
