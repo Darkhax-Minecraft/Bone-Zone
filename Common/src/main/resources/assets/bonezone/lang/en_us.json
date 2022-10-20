@@ -20,6 +20,9 @@
   "block.bonezone.bone_mosaic": "Bone Mosaic",
   "block.bonezone.wither_bone_mosaic": "Wither Bone Mosaic",
   "block.bonezone.stray_bone_mosaic": "Stray Bone Mosaic",
+  "block.bonezone.bone_bricks": "Bone Bricks",
+  "block.bonezone.wither_bone_bricks": "Wither Bone Bricks",
+  "block.bonezone.stray_bone_bricks": "Stray Bone Bricks",
   "block.bonezone.carcass": "Carcass",
 
   "_item": "Item Names",

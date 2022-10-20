@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "bonezone:block/stray_bone_bricks"
+  }
+}

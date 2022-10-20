@@ -1,0 +1,10 @@
+{
+  "type": "bonezone:bonecarving",
+  "input": {
+    "item": "minecraft:bone_block"
+  },
+  "output": {
+    "item": "bonezone:bone_bricks",
+    "count": 6
+  }
+}
