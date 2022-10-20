@@ -1,0 +1,10 @@
+{
+  "type": "bonezone:bonecarving",
+  "input": {
+    "item": "minecraft:bone_block"
+  },
+  "output": {
+    "item": "bonezone:empty_skeleton_pot_flipped",
+    "count": 1
+  }
+}

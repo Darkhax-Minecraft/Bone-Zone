@@ -1,0 +1,10 @@
+{
+  "type": "bonezone:bonecarving",
+  "input": {
+    "item": "minecraft:coal_block"
+  },
+  "output": {
+    "item": "bonezone:wither_bone_mosaic",
+    "count": 6
+  }
+}
