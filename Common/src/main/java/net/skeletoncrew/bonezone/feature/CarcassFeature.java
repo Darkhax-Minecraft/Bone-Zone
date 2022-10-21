@@ -58,7 +58,8 @@ public class CarcassFeature extends Feature<CarcassFeatureConfiguration> {
 
                 level.setBlock(origin, originState, 3);
                 level.setBlock(neighbour, neighbourState, 3);
-                level.setBlock(skull, skullState, 3);
+                if (rand.nextInt(3) == 0)
+                    level.setBlock(skull, skullState, 3);
 
                 return true;
             }
