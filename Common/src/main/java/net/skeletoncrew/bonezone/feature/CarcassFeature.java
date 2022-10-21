@@ -20,7 +20,7 @@ public class CarcassFeature extends Feature<CarcassFeatureConfiguration> {
     public boolean place(FeaturePlaceContext<CarcassFeatureConfiguration> context) {
         var rand = context.random();
 
-        if (rand.nextDouble() < 0.75f) //diminish chances
+        if (rand.nextDouble() < 0.9f) //diminish chances
             return false;
 
         var level = context.level();
