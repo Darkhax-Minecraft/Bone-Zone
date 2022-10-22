@@ -1,0 +1,15 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:taiga",
+    "minecraft:plains",
+    "minecraft:sunflower_plains",
+    "minecraft:forest",
+    "minecraft:dark_forest",
+    "minecraft:meadow"
+  ],
+  "features": [
+    "bonezone:carcass_bird"
+  ],
+  "step": "top_layer_modification"
+}

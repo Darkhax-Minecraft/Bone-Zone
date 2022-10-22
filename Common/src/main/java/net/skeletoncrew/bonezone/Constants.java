@@ -3,6 +3,7 @@ package net.skeletoncrew.bonezone;
 import net.darkhax.bookshelf.api.function.CachedSupplier;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -10,6 +11,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.skeletoncrew.bonezone.block.CandleSkullBlock;
 import net.skeletoncrew.bonezone.block.CustomPotBlock;
+import net.skeletoncrew.bonezone.block.SpineSkullBlock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -71,4 +73,7 @@ public class Constants {
         CANDLES.put(DyeColor.YELLOW, Items.YELLOW_CANDLE);
 
     }
+
+    public static final CachedSupplier<Block> CARCASS = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "carcass")));
+
 }
