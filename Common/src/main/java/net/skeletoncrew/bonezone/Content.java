@@ -2,40 +2,27 @@ package net.skeletoncrew.bonezone;
 
 import net.darkhax.bookshelf.api.Services;
 import net.darkhax.bookshelf.api.registry.RegistryDataProvider;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
-import net.skeletoncrew.bonezone.block.BasicBoneBlock;
-import net.skeletoncrew.bonezone.block.BoneCarverBlock;
-import net.skeletoncrew.bonezone.block.BoneLadderBlock;
-import net.skeletoncrew.bonezone.block.CarcassBlock;
-import net.skeletoncrew.bonezone.block.CustomPotBlock;
-import net.skeletoncrew.bonezone.block.SpineSkullBlock;
+import net.skeletoncrew.bonezone.block.*;
 import net.skeletoncrew.bonezone.recipe.bonecarving.BonecarvingRecipeSerializer;
 import net.skeletoncrew.bonezone.recipe.mobsanding.MobsandingRecipeSerializer;
 import net.skeletoncrew.bonezone.ui.bonecarving.BonecarverMenu;
 
 import java.util.Map;
+import java.util.function.ToIntFunction;
 
 public class Content extends RegistryDataProvider {
 
     public Content() {
 
         super(Constants.MOD_ID);
-//        UglyDataGen.generateModels("creeper", "minecraft:entity/skeleton/skeleton", "skeleton/skeleton", "bonezone:block/skullpot/creeper");
-//        UglyDataGen.generateCrossBlockstate("creeper");
-//
-//        UglyDataGen.generateModels("skeleton", "minecraft:entity/skeleton/skeleton", "skeleton/skeleton", "minecraft:entity/skeleton/skeleton");
-//        UglyDataGen.generateCrossBlockstate("skeleton");
-//
-//        UglyDataGen.generateModels("wither", "minecraft:entity/skeleton/wither_skeleton", "skeleton/wither_skeleton", "minecraft:entity/skeleton/wither_skeleton");
-//        UglyDataGen.generateCrossBlockstate("wither");
-//
-//        UglyDataGen.generateModels("stray", "minecraft:entity/skeleton/stray", "skeleton/stray", "minecraft:entity/skeleton/stray");
-//        UglyDataGen.generateCrossBlockstate("stray");
-
         this.withCreativeTab(() -> Items.SKELETON_SKULL);
         this.withAutoItemBlocks();
         this.bindBlockRenderLayers();
@@ -73,11 +60,28 @@ public class Content extends RegistryDataProvider {
         this.createPotsFor("stray", Constants.STRAY_POT_TYPES, false);
         this.createPotsFor("stray", Constants.FLIPPED_STRAY_POT_TYPES, true);
 
+        this.createCandleSkull("", Constants.CANDLE_SKULL_TYPES);
+
         // Items
         // TODO Only if we have non-block items
 
         // Menus
         this.menus.add(() -> Services.CONSTRUCTS.menuType(BonecarverMenu::fromNetwork), "bonecarver");
+    }
+
+    private void createCandleSkull(String type, Map<Item, CandleSkullBlock> map) {
+        final BlockBehaviour.Properties potProps = BlockBehaviour.Properties.of(Material.DECORATION).sound(SoundType.BONE_BLOCK).instabreak().noOcclusion().lightLevel(litBlockEmission(6));
+
+        for (DyeColor color : DyeColor.values())
+            this.blocks.add(() -> new CandleSkullBlock(potProps, Constants.CANDLES.get(color), map), "candle_skull_" + color.getName());
+
+        this.blocks.add(() -> new CandleSkullBlock(potProps, Items.CANDLE, map), "candle_skull_regular");
+        this.blocks.add(() -> new CandleSkullBlock(potProps, Items.AIR, map), "candle_skull_empty");
+
+    }
+
+    private static ToIntFunction<BlockState> litBlockEmission(int level) {
+        return (state) -> state.getValue(BlockStateProperties.LIT) ? level : 0;
     }
 
     private void createPotsFor(String type, Map<Item, CustomPotBlock> variants, boolean flipped) {
