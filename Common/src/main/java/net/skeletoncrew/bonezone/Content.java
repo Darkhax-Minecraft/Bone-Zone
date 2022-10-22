@@ -23,6 +23,11 @@ public class Content extends RegistryDataProvider {
     public Content() {
 
         super(Constants.MOD_ID);
+
+//        new CandleSkullGen("skeleton", "minecraft:entity/skeleton/skeleton").genBlockStates().genModels().genItemFile();
+//        new CandleSkullGen("wither", "minecraft:entity/skeleton/wither_skeleton").genBlockStates().genModels().genItemFile();
+//        new CandleSkullGen("stray", "minecraft:entity/skeleton/stray").genBlockStates().genModels().genItemFile();
+
         this.withCreativeTab(() -> Items.SKELETON_SKULL);
         this.withAutoItemBlocks();
         this.bindBlockRenderLayers();
@@ -60,7 +65,9 @@ public class Content extends RegistryDataProvider {
         this.createPotsFor("stray", Constants.STRAY_POT_TYPES, false);
         this.createPotsFor("stray", Constants.FLIPPED_STRAY_POT_TYPES, true);
 
-        this.createCandleSkull("", Constants.CANDLE_SKULL_TYPES);
+        this.createCandleSkull("skeleton", Constants.CANDLE_SKELETON_TYPES);
+        this.createCandleSkull("wither", Constants.CANDLE_WITHER_TYPES);
+        this.createCandleSkull("stray", Constants.CANDLE_STRAY_TYPES);
 
         // Items
         // TODO Only if we have non-block items
@@ -72,11 +79,12 @@ public class Content extends RegistryDataProvider {
     private void createCandleSkull(String type, Map<Item, CandleSkullBlock> map) {
         final BlockBehaviour.Properties potProps = BlockBehaviour.Properties.of(Material.DECORATION).sound(SoundType.BONE_BLOCK).instabreak().noOcclusion().lightLevel(litBlockEmission(6));
 
+        var nameBase = "candle_skull_" + type + "_";
         for (DyeColor color : DyeColor.values())
-            this.blocks.add(() -> new CandleSkullBlock(potProps, Constants.CANDLES.get(color), map), "candle_skull_" + color.getName());
+            this.blocks.add(() -> new CandleSkullBlock(potProps, Constants.CANDLES.get(color), map), nameBase + color.getName());
 
-        this.blocks.add(() -> new CandleSkullBlock(potProps, Items.CANDLE, map), "candle_skull_regular");
-        this.blocks.add(() -> new CandleSkullBlock(potProps, Items.AIR, map), "candle_skull_empty");
+        this.blocks.add(() -> new CandleSkullBlock(potProps, Items.CANDLE, map), nameBase + "regular");
+        this.blocks.add(() -> new CandleSkullBlock(potProps, Items.AIR, map), nameBase + "empty");
 
     }
 

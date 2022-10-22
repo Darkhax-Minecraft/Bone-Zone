@@ -1,0 +1,35 @@
+{
+  "variants": {
+    "facing=north,lit=false": {
+      "model": "bonezone:block/candle_skull/stray/orange"
+    },
+    "facing=south,lit=false": {
+      "model": "bonezone:block/candle_skull/stray/orange",
+      "y": 180
+    },
+    "facing=east,lit=false": {
+      "model": "bonezone:block/candle_skull/stray/orange",
+      "y": 90
+    },
+    "facing=west,lit=false": {
+      "model": "bonezone:block/candle_skull/stray/orange",
+      "y": 270
+    },
+"facing=north,lit=true": {
+  "model": "bonezone:block/candle_skull/stray/orange_lit"
+},
+"facing=south,lit=true": {
+  "model": "bonezone:block/candle_skull/stray/orange_lit",
+  "y": 180
+},
+"facing=east,lit=true": {
+  "model": "bonezone:block/candle_skull/stray/orange_lit",
+  "y": 90
+},
+"facing=west,lit=true": {
+  "model": "bonezone:block/candle_skull/stray/orange_lit",
+  "y": 270
+}
+
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "parent": "bonezone:block/candle_skull/candle_skull_template",
-  "textures": {
-    "drip": "bonezone:block/drip/orange",
-    "candle": "minecraft:block/orange_candle_lit"
-  }
-}

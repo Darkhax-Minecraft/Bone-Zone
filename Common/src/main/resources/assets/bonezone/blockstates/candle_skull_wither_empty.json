@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north,lit=false": {
+      "model": "bonezone:block/candle_skull/wither/empty"
+    },
+    "facing=south,lit=false": {
+      "model": "bonezone:block/candle_skull/wither/empty",
+      "y": 180
+    },
+    "facing=east,lit=false": {
+      "model": "bonezone:block/candle_skull/wither/empty",
+      "y": 90
+    },
+    "facing=west,lit=false": {
+      "model": "bonezone:block/candle_skull/wither/empty",
+      "y": 270
+    }
+  }
+}

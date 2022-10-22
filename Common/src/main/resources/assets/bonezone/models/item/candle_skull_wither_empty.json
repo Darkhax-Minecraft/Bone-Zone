@@ -1,0 +1,6 @@
+{
+  "parent": "bonezone:block/candle_skull/wither/empty",
+  "textures": {
+      "skull": "minecraft:entity/skeleton/wither_skeleton"
+    }
+}

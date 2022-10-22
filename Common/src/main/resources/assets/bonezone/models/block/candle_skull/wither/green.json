@@ -1,0 +1,8 @@
+{
+  "parent": "bonezone:block/candle_skull/candle_skull_template",
+  "textures": {
+    "drip": "bonezone:block/drip/green",
+    "candle": "minecraft:block/green_candle",
+    "skull": "minecraft:entity/skeleton/wither_skeleton"
+  }
+}

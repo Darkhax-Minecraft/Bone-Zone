@@ -3,7 +3,6 @@ package net.skeletoncrew.bonezone;
 import net.darkhax.bookshelf.api.function.CachedSupplier;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -11,7 +10,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.skeletoncrew.bonezone.block.CandleSkullBlock;
 import net.skeletoncrew.bonezone.block.CustomPotBlock;
-import net.skeletoncrew.bonezone.block.SpineSkullBlock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +35,9 @@ public class Constants {
     public static final Map<Item, CustomPotBlock> FLIPPED_CREEPER_POT_TYPES = new IdentityHashMap<>();
     public static final Map<Item, CustomPotBlock> FLIPPED_STRAY_POT_TYPES = new IdentityHashMap<>();
 
-    public static final Map<Item, CandleSkullBlock> CANDLE_SKULL_TYPES = new IdentityHashMap<>();
+    public static final Map<Item, CandleSkullBlock> CANDLE_SKELETON_TYPES = new IdentityHashMap<>();
+    public static final Map<Item, CandleSkullBlock> CANDLE_WITHER_TYPES = new IdentityHashMap<>();
+    public static final Map<Item, CandleSkullBlock> CANDLE_STRAY_TYPES = new IdentityHashMap<>();
 
     // Menus
     public static final CachedSupplier<MenuType<?>> BONECARVER_MENU = CachedSupplier.cache(() -> Registry.MENU.get(new ResourceLocation(Constants.MOD_ID, "bonecarver")));
