@@ -1,6 +1,6 @@
 {
   "config": {
-    "blockIds": "#minecraft:dirt",
+    "blockIds": "#bonezone:carcass_spawnable",
     "spinalSkull": "bonezone:spinal_skull_bird"
   },
   "type": "bonezone:carcass_bird"
