@@ -48,6 +48,7 @@ public class Content extends RegistryDataProvider {
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_goat");
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_deer");
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_bird");
+        this.blocks.add(SpineSkullBlock::new, "spinal_skull_bull");
         this.blocks.add(BasicBoneBlock::bone, "bone_mosaic");
         this.blocks.add(BasicBoneBlock::wither, "wither_bone_mosaic");
         this.blocks.add(BasicBoneBlock::stray, "stray_bone_mosaic");

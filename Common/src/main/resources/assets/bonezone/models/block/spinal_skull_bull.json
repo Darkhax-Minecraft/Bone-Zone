@@ -1,0 +1,289 @@
+{
+  "textures": {
+    "spine": "bonezone:block/skull/spine",
+    "snout": "bonezone:block/skull/bull/skull_snout",
+    "skull": "bonezone:block/skull/bull/skull",
+    "particle": "minecraft:block/bone_block_side"
+  },
+  "elements": [
+    {
+      "name": "head",
+      "from": [4, 0, 6],
+      "to": [12, 8, 12],
+      "faces": {
+        "south": {
+          "uv": [4, 8, 12, 16],
+          "texture": "spine"
+        },
+        "up": {
+          "uv": [4, 2, 12, 8],
+          "texture": "spine"
+        }
+      }
+    }, {
+      "name": "head_inside",
+      "from": [12, 0, 6],
+      "to": [4, 8, 12],
+      "faces": {
+        "south": {
+          "uv": [4, 8, 12, 16],
+          "texture": "spine"
+        },
+        "up": {
+          "uv": [4, 2, 12, 8],
+          "texture": "spine"
+        }
+      }
+    }, {
+      "name": "horn_right",
+      "from": [10, 6, 7],
+      "to": [18, 8, 9],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "y",
+        "origin": [12, 8, 8]
+      },
+      "faces": {
+        "north": {
+          "uv": [6, 0, 14, 2],
+          "texture": "snout"
+        },
+        "east": {
+          "uv": [4, 0, 6, 2],
+          "texture": "snout"
+        },
+        "south": {
+          "uv": [6, 0, 14, 2],
+          "rotation": 180,
+          "texture": "snout"
+        },
+        "west": {
+          "uv": [14, 0, 16, 2],
+          "texture": "snout"
+        },
+        "up": {
+          "uv": [6, 2, 14, 0],
+          "rotation": 180,
+          "texture": "snout"
+        },
+        "down": {
+          "uv": [6, 2, 14, 0],
+          "rotation": 180,
+          "texture": "snout"
+        }
+      }
+    }, {
+      "name": "horn_left",
+      "from": [-2, 6, 7],
+      "to": [6, 8, 9],
+      "rotation": {
+        "angle": 22.5,
+        "axis": "y",
+        "origin": [4, 8, 8]
+      },
+      "faces": {
+        "north": {
+          "uv": [6, 2, 14, 0],
+          "rotation": 180,
+          "texture": "snout"
+        },
+        "east": {
+          "uv": [14, 0, 16, 2],
+          "texture": "snout"
+        },
+        "south": {
+          "uv": [6, 2, 14, 0],
+          "texture": "snout"
+        },
+        "west": {
+          "uv": [4, 0, 6, 2],
+          "rotation": 90,
+          "texture": "snout"
+        },
+        "up": {
+          "uv": [6, 0, 14, 2],
+          "texture": "snout"
+        },
+        "down": {
+          "uv": [6, 0, 14, 2],
+          "texture": "snout"
+        }
+      }
+    }, {
+      "name": "skull_nose",
+      "from": [6, 5.14805, -4.77164],
+      "to": [10, 9.14805, 1.22836],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "x",
+        "origin": [8, 8, 8]
+      },
+      "faces": {
+        "north": {
+          "uv": [0, 6, 4, 10],
+          "texture": "snout"
+        },
+        "east": {
+          "uv": [10, 6, 4, 10],
+          "texture": "snout"
+        },
+        "west": {
+          "uv": [4, 6, 10, 10],
+          "texture": "snout"
+        },
+        "up": {
+          "uv": [0, 6, 4, 0],
+          "texture": "snout"
+        },
+        "down": {
+          "uv": [0, 16, 4, 10],
+          "texture": "snout"
+        }
+      }
+    }, {
+      "name": "skull_nose_inside",
+      "from": [10, 5.14805, -4.77164],
+      "to": [6, 9.14805, 1.22836],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "x",
+        "origin": [8, 8, 8]
+      },
+      "faces": {
+        "north": {
+          "uv": [0, 6, 4, 10],
+          "texture": "snout"
+        },
+        "east": {
+          "uv": [10, 6, 4, 10],
+          "texture": "snout"
+        },
+        "west": {
+          "uv": [4, 6, 10, 10],
+          "texture": "snout"
+        },
+        "up": {
+          "uv": [0, 6, 4, 0],
+          "texture": "snout"
+        },
+        "down": {
+          "uv": [4, 16, 0, 10],
+          "texture": "snout"
+        }
+      }
+    }, {
+      "name": "skull",
+      "from": [4, 4.14805, 1.22836],
+      "to": [12, 9.14805, 8.22836],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "x",
+        "origin": [8, 8, 8]
+      },
+      "faces": {
+        "north": {
+          "uv": [0, 4, 8, 9],
+          "texture": "skull"
+        },
+        "east": {
+          "uv": [16, 0, 9, 5],
+          "texture": "skull"
+        },
+        "south": {
+          "uv": [0, 0, 8, 5],
+          "texture": "skull"
+        },
+        "west": {
+          "uv": [9, 0, 16, 5],
+          "texture": "skull"
+        },
+        "up": {
+          "uv": [0, 9, 8, 16],
+          "texture": "skull"
+        },
+        "down": {
+          "uv": [8, 9, 16, 16],
+          "texture": "skull"
+        }
+      }
+    }, {
+      "name": "skull_inside",
+      "from": [12, 4.14805, 1.22836],
+      "to": [4, 9.14805, 8.22836],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "x",
+        "origin": [8, 8, 8]
+      },
+      "faces": {
+        "north": {
+          "uv": [0, 4, 8, 9],
+          "texture": "skull"
+        },
+        "east": {
+          "uv": [16, 0, 9, 5],
+          "texture": "skull"
+        },
+        "south": {
+          "uv": [0, 0, 8, 5],
+          "texture": "skull"
+        },
+        "west": {
+          "uv": [9, 0, 16, 5],
+          "texture": "skull"
+        },
+        "up": {
+          "uv": [8, 9, 0, 16],
+          "texture": "skull"
+        },
+        "down": {
+          "uv": [8, 9, 16, 16],
+          "texture": "skull"
+        }
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [75, 45, 0],
+      "scale": [0.375, 0.375, 0.375]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [75, 45, 0],
+      "scale": [0.375, 0.375, 0.375]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, 45, 0],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 225, 0],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "ground": {
+      "translation": [0, 3, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "gui": {
+      "rotation": [30, 225, 0],
+      "translation": [-1, 3.25, 0],
+      "scale": [0.87, 0.87, 0.87]
+    },
+    "head": {
+      "translation": [0, 7, 0],
+      "scale": [2, 2, 2]
+    },
+    "fixed": {
+      "rotation": [-67.5, 0, 0],
+      "translation": [0, 4.5, -2.75]
+    }
+  },
+  "groups": [
+    0, 1, 2, 3, {
+      "name": "group",
+      "origin": [7, 8, 5],
+      "color": 0,
+      "children": [4, 5, 6, 7]
+    }
+  ]
+}
