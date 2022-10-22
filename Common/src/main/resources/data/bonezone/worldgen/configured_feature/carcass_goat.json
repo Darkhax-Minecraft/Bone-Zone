@@ -1,0 +1,11 @@
+{
+  "config": {
+    "blockIds": [
+      "minecraft:stone",
+      "minecraft:gravel",
+      "minecraft:grass_block"
+    ],
+    "spinalSkull": "bonezone:spinal_skull_goat"
+  },
+  "type": "bonezone:carcass_goat"
+}

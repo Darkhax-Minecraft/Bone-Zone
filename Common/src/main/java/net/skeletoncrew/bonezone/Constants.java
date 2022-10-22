@@ -3,10 +3,12 @@ package net.skeletoncrew.bonezone;
 import net.darkhax.bookshelf.api.function.CachedSupplier;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.skeletoncrew.bonezone.block.CustomPotBlock;
+import net.skeletoncrew.bonezone.block.SpineSkullBlock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,4 +46,6 @@ public class Constants {
     public static final CachedSupplier<Block> FLIPPED_WITHER_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "wither_potted_fern_flipped")));
     public static final CachedSupplier<Block> FLIPPED_CREEPER_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "creeper_potted_fern_flipped")));
     public static final CachedSupplier<Block> FLIPPED_STRAY_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "stray_potted_fern_flipped")));
+
+    public static final CachedSupplier<Block> CARCASS = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "carcass")));
 }
