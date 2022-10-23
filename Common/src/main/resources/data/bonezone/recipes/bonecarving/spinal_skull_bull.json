@@ -4,7 +4,7 @@
     "item": "minecraft:bone_block"
   },
   "output": {
-    "item": "bonezone:candle_skull_skeleton_empty",
-    "count": 4
+    "item": "bonezone:spinal_skull_bull",
+    "count": 1
   }
 }
