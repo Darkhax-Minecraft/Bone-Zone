@@ -5,6 +5,7 @@ import net.darkhax.bookshelf.api.registry.RegistryDataProvider;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -42,33 +43,39 @@ public class Content extends RegistryDataProvider {
 
         // Blocks
         this.blocks.add(BoneCarverBlock::new, "bonecarver");
+
+        /// Bone
+        this.blocks.add(BasicBoneBlock::bone, "bone_bricks");
+        this.blocks.add(BasicBoneBlock::bone, "bone_mosaic");
         this.blocks.add(BoneLadderBlock::new, "bone_ladder");
+        this.createPotsFor("skeleton", Constants.SKELETON_POT_TYPES, false);
+        this.createPotsFor("skeleton", Constants.FLIPPED_SKELETON_POT_TYPES, true);
+        this.createCandleSkull("skeleton", Constants.CANDLE_SKELETON_TYPES);
+
+        /// Wither
+        this.blocks.add(BasicBoneBlock::wither, "wither_bone_bricks");
+        this.blocks.add(BasicBoneBlock::wither, "wither_bone_mosaic");
         this.blocks.add(BoneLadderBlock::new, "wither_bone_ladder");
+        this.createPotsFor("wither", Constants.WITHER_POT_TYPES, false);
+        this.createPotsFor("wither", Constants.FLIPPED_WITHER_POT_TYPES, true);
+        this.createCandleSkull("wither", Constants.CANDLE_WITHER_TYPES);
+
+        /// Stray
+        this.blocks.add(BasicBoneBlock::stray, "stray_bone_bricks");
+        this.blocks.add(BasicBoneBlock::stray, "stray_bone_mosaic");
         this.blocks.add(BoneLadderBlock::new, "stray_bone_ladder");
+        this.createPotsFor("stray", Constants.STRAY_POT_TYPES, false);
+        this.createPotsFor("stray", Constants.FLIPPED_STRAY_POT_TYPES, true);
+        this.createCandleSkull("stray", Constants.CANDLE_STRAY_TYPES);
+
+        /// Misc
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_goat");
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_deer");
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_bird");
         this.blocks.add(SpineSkullBlock::new, "spinal_skull_bull");
-        this.blocks.add(BasicBoneBlock::bone, "bone_mosaic");
-        this.blocks.add(BasicBoneBlock::wither, "wither_bone_mosaic");
-        this.blocks.add(BasicBoneBlock::stray, "stray_bone_mosaic");
-        this.blocks.add(BasicBoneBlock::bone, "bone_bricks");
-        this.blocks.add(BasicBoneBlock::wither, "wither_bone_bricks");
-        this.blocks.add(BasicBoneBlock::stray, "stray_bone_bricks");
         this.blocks.add(CarcassBlock::new, "carcass");
-
-        this.createPotsFor("skeleton", Constants.SKELETON_POT_TYPES, false);
-        this.createPotsFor("skeleton", Constants.FLIPPED_SKELETON_POT_TYPES, true);
-        this.createPotsFor("wither", Constants.WITHER_POT_TYPES, false);
-        this.createPotsFor("wither", Constants.FLIPPED_WITHER_POT_TYPES, true);
         this.createPotsFor("creeper", Constants.CREEPER_POT_TYPES, false);
         this.createPotsFor("creeper", Constants.FLIPPED_CREEPER_POT_TYPES, true);
-        this.createPotsFor("stray", Constants.STRAY_POT_TYPES, false);
-        this.createPotsFor("stray", Constants.FLIPPED_STRAY_POT_TYPES, true);
-
-        this.createCandleSkull("skeleton", Constants.CANDLE_SKELETON_TYPES);
-        this.createCandleSkull("wither", Constants.CANDLE_WITHER_TYPES);
-        this.createCandleSkull("stray", Constants.CANDLE_STRAY_TYPES);
 
         // Items
         // TODO Only if we have non-block items
