@@ -5,13 +5,18 @@ import net.darkhax.bookshelf.api.registry.RegistryDataProvider;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
-import net.skeletoncrew.bonezone.block.*;
+import net.skeletoncrew.bonezone.block.BasicBoneBlock;
+import net.skeletoncrew.bonezone.block.BoneCarverBlock;
+import net.skeletoncrew.bonezone.block.BoneLadderBlock;
+import net.skeletoncrew.bonezone.block.CandleSkullBlock;
+import net.skeletoncrew.bonezone.block.CarcassBlock;
+import net.skeletoncrew.bonezone.block.CustomPotBlock;
+import net.skeletoncrew.bonezone.block.SpineSkullBlock;
 import net.skeletoncrew.bonezone.recipe.bonecarving.BonecarvingRecipeSerializer;
 import net.skeletoncrew.bonezone.recipe.mobsanding.MobsandingRecipeSerializer;
 import net.skeletoncrew.bonezone.ui.bonecarving.BonecarverMenu;
@@ -85,14 +90,18 @@ public class Content extends RegistryDataProvider {
     }
 
     private void createCandleSkull(String type, Map<Item, CandleSkullBlock> map) {
-        final BlockBehaviour.Properties potProps = BlockBehaviour.Properties.of(Material.DECORATION).sound(SoundType.BONE_BLOCK).instabreak().noOcclusion().lightLevel(litBlockEmission(6));
+
+        final BlockBehaviour.Properties props = BlockBehaviour.Properties.of(Material.DECORATION).sound(SoundType.BONE_BLOCK).strength(0.1f).noOcclusion().lightLevel(litBlockEmission(6));
 
         var nameBase = "candle_skull_" + type + "_";
-        for (DyeColor color : DyeColor.values())
-            this.blocks.add(() -> new CandleSkullBlock(potProps, Constants.CANDLES.get(color), map), nameBase + color.getName());
 
-        this.blocks.add(() -> new CandleSkullBlock(potProps, Items.CANDLE, map), nameBase + "regular");
-        this.blocks.add(() -> new CandleSkullBlock(potProps, Items.AIR, map), nameBase + "empty");
+        for (DyeColor color : DyeColor.values()) {
+
+            this.blocks.add(() -> new CandleSkullBlock(props, Constants.CANDLES.get(color), map), nameBase + color.getName());
+        }
+
+        this.blocks.add(() -> new CandleSkullBlock(props, Items.CANDLE, map), nameBase + "regular");
+        this.blocks.add(() -> new CandleSkullBlock(props, Items.AIR, map), nameBase + "empty");
 
     }
 
