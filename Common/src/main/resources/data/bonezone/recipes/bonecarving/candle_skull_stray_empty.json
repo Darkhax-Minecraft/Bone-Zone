@@ -1,0 +1,10 @@
+{
+  "type": "bonezone:bonecarving",
+  "input": {
+    "item": "minecraft:bone_block"
+  },
+  "output": {
+    "item": "bonezone:candle_skull_stray_empty",
+    "count": 1
+  }
+}
