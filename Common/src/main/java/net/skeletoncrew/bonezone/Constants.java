@@ -39,6 +39,8 @@ public class Constants {
     public static final Map<Item, CandleSkullBlock> CANDLE_WITHER_TYPES = new IdentityHashMap<>();
     public static final Map<Item, CandleSkullBlock> CANDLE_STRAY_TYPES = new IdentityHashMap<>();
 
+    public static final CachedSupplier<Item> BONECARVER = CachedSupplier.cache(() -> Registry.ITEM.get(new ResourceLocation(Constants.MOD_ID, "bonecarver")));
+
     // Menus
     public static final CachedSupplier<MenuType<?>> BONECARVER_MENU = CachedSupplier.cache(() -> Registry.MENU.get(new ResourceLocation(Constants.MOD_ID, "bonecarver")));
 

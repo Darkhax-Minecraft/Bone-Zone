@@ -4,6 +4,7 @@ import net.darkhax.bookshelf.api.data.sound.Sound;
 import net.darkhax.bookshelf.api.function.CachedSupplier;
 import net.darkhax.bookshelf.api.registry.RegistryObject;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
@@ -18,7 +19,7 @@ public class BonecarvingRecipe extends AbstractBonecarvingRecipe {
 
     private static final CachedSupplier<RecipeSerializer<?>> SERIALIZER = RegistryObject.deferred(Registry.RECIPE_SERIALIZER, Constants.MOD_ID, "bonecarving").cast();
 
-    protected final Ingredient input;
+    public final Ingredient input;
     protected final ItemStack output;
     protected final Sound sound;
 
@@ -46,6 +47,12 @@ public class BonecarvingRecipe extends AbstractBonecarvingRecipe {
     public RecipeSerializer<?> getSerializer() {
 
         return SERIALIZER.get();
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+
+        return NonNullList.of(this.input);
     }
 
     @Override

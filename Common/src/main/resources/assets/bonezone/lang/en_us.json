@@ -31,5 +31,6 @@
   "_ui": "GUI's",
   "container.bonezone.bonecarver": "Bonecarver",
   "_misc": "Misc",
-  "death.attack.bonezone.sanding": "%s sanded off a bit too much."
+  "death.attack.bonezone.sanding": "%s sanded off a bit too much.",
+  "gui.jei.category.bonezone.bonecarving": "Bonecarving"
 }
