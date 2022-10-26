@@ -46,7 +46,6 @@ public class JEIPlugin implements IModPlugin {
 
         final RecipeManager recipeManager = Minecraft.getInstance().level.getRecipeManager();
         final List<AbstractBonecarvingRecipe> recipes = recipeManager.getAllRecipesFor(AbstractBonecarvingRecipe.RECIPE_TYPE.get());
-        Constants.LOG.info("Registering {} recipes.", recipes.size());
         registration.addRecipes(BONECARVING, recipes);
     }
 }

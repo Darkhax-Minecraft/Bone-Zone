@@ -4,7 +4,7 @@
     "item": "minecraft:coal_block"
   },
   "output": {
-    "item": "bonezone:candle_skull_skeleton_empty",
-    "count": 4
+    "item": "bonezone:wither_bone_ladder",
+    "count": 6
   }
 }
