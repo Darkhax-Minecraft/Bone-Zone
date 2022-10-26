@@ -1,5 +1,7 @@
 package net.skeletoncrew.bonezone.datagen;
 
+import net.minecraft.world.item.DyeColor;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -141,6 +143,138 @@ public class UglyDataGen {
 
                 throw new RuntimeException(e);
             }
+        }
+    }
+
+    public static void makeCandleLoot(String type) {
+
+        final File dir = new File("output/data/bonezone/loot_tables/blocks");
+        dir.mkdirs();
+
+        final String emptyPot = "candle_skull_" + type + "_empty";
+
+        // Colors
+        for (DyeColor color : DyeColor.values()) {
+
+            final String blockId = "candle_skull_" + type + "_" + color.getName();
+            final File lootFile = new File(dir, blockId + ".json");
+
+            try (FileWriter writer = new FileWriter(lootFile)) {
+
+                writer.append("{\n" +
+                        "  \"type\": \"minecraft:block\",\n" +
+                        "  \"pools\": [\n" +
+                        "    {\n" +
+                        "      \"bonus_rolls\": 0.0,\n" +
+                        "      \"conditions\": [\n" +
+                        "        {\n" +
+                        "          \"condition\": \"minecraft:survives_explosion\"\n" +
+                        "        }\n" +
+                        "      ],\n" +
+                        "      \"entries\": [\n" +
+                        "        {\n" +
+                        "          \"type\": \"minecraft:item\",\n" +
+                        "          \"name\": \"bonezone:" + emptyPot + "\"\n" +
+                        "        }\n" +
+                        "      ],\n" +
+                        "      \"rolls\": 1.0\n" +
+                        "    },\n" +
+                        "    {\n" +
+                        "      \"bonus_rolls\": 0.0,\n" +
+                        "      \"conditions\": [\n" +
+                        "        {\n" +
+                        "          \"condition\": \"minecraft:survives_explosion\"\n" +
+                        "        }\n" +
+                        "      ],\n" +
+                        "      \"entries\": [\n" +
+                        "        {\n" +
+                        "          \"type\": \"minecraft:item\",\n" +
+                        "          \"name\": \"minecraft:" + color.getName() + "_candle\"\n" +
+                        "        }\n" +
+                        "      ],\n" +
+                        "      \"rolls\": 1.0\n" +
+                        "    }\n" +
+                        "  ]\n" +
+                        "}");
+            }
+
+            catch (IOException e) {
+
+                throw new RuntimeException(e);
+            }
+        }
+
+        try (FileWriter writer = new FileWriter(new File(dir, "candle_skull_" + type + "_regular.json"))) {
+
+            writer.append("{\n" +
+                    "  \"type\": \"minecraft:block\",\n" +
+                    "  \"pools\": [\n" +
+                    "    {\n" +
+                    "      \"bonus_rolls\": 0.0,\n" +
+                    "      \"conditions\": [\n" +
+                    "        {\n" +
+                    "          \"condition\": \"minecraft:survives_explosion\"\n" +
+                    "        }\n" +
+                    "      ],\n" +
+                    "      \"entries\": [\n" +
+                    "        {\n" +
+                    "          \"type\": \"minecraft:item\",\n" +
+                    "          \"name\": \"bonezone:" + emptyPot + "\"\n" +
+                    "        }\n" +
+                    "      ],\n" +
+                    "      \"rolls\": 1.0\n" +
+                    "    },\n" +
+                    "    {\n" +
+                    "      \"bonus_rolls\": 0.0,\n" +
+                    "      \"conditions\": [\n" +
+                    "        {\n" +
+                    "          \"condition\": \"minecraft:survives_explosion\"\n" +
+                    "        }\n" +
+                    "      ],\n" +
+                    "      \"entries\": [\n" +
+                    "        {\n" +
+                    "          \"type\": \"minecraft:item\",\n" +
+                    "          \"name\": \"minecraft:candle\"\n" +
+                    "        }\n" +
+                    "      ],\n" +
+                    "      \"rolls\": 1.0\n" +
+                    "    }\n" +
+                    "  ]\n" +
+                    "}");
+        }
+
+        catch (IOException e) {
+
+            throw new RuntimeException(e);
+        }
+
+        try (FileWriter writer = new FileWriter(new File(dir, "candle_skull_" + type + "_empty.json"))) {
+
+            writer.append("{\n" +
+                    "  \"type\": \"minecraft:block\",\n" +
+                    "  \"pools\": [\n" +
+                    "    {\n" +
+                    "      \"bonus_rolls\": 0.0,\n" +
+                    "      \"conditions\": [\n" +
+                    "        {\n" +
+                    "          \"condition\": \"minecraft:survives_explosion\"\n" +
+                    "        }\n" +
+                    "      ],\n" +
+                    "      \"entries\": [\n" +
+                    "        {\n" +
+                    "          \"type\": \"minecraft:item\",\n" +
+                    "          \"name\": \"bonezone:" + emptyPot + "\"\n" +
+                    "        }\n" +
+                    "      ],\n" +
+                    "      \"rolls\": 1.0\n" +
+                    "    }\n" +
+                    "  ]\n" +
+                    "}");
+        }
+
+        catch (IOException e) {
+
+            throw new RuntimeException(e);
         }
     }
 }
