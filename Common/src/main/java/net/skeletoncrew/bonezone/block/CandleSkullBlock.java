@@ -16,6 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractCandleBlock;
@@ -37,6 +38,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.Map;
 
 public class CandleSkullBlock extends AbstractCandleBlock implements IBindRenderLayer, IItemBlockProvider {
+
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     protected static final VoxelShape SKULL = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
@@ -48,6 +50,7 @@ public class CandleSkullBlock extends AbstractCandleBlock implements IBindRender
     private final Item contained;
 
     public CandleSkullBlock(BlockBehaviour.Properties props, Item candle, Map<Item, CandleSkullBlock> variants) {
+
         super(props);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, false));
         variants.put(candle, this);
@@ -56,54 +59,94 @@ public class CandleSkullBlock extends AbstractCandleBlock implements IBindRender
     }
 
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        ItemStack heldStack = player.getItemInHand(hand);
 
-        if (hasNoCandle()) {
+        final ItemStack heldStack = player.getItemInHand(hand);
+
+        // Attempt to place a candle if one does not exist.
+        if (this.hasNoCandle()) {
+
             final CandleSkullBlock toPlace = this.variants.getOrDefault(heldStack.getItem(), this);
 
             if (toPlace != this && !toPlace.hasNoCandle()) {
 
                 level.setBlock(pos, toPlace.applyFrom(state), 3);
-                player.awardStat(Stats.POT_FLOWER);
                 level.playSound(player, pos, SoundEvents.CANDLE_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
 
                 if (!player.getAbilities().instabuild) {
+
                     heldStack.shrink(1);
                 }
             }
-        } else if (candleHit(hitResult)) {
+        }
+
+        // Check if the candle is clicked on
+        else if (candleHit(hitResult)) {
+
+            // Light the candle
             if (!state.getValue(LIT) && (heldStack.is(Items.FLINT_AND_STEEL) || heldStack.is(Items.FIRE_CHARGE))) {
+
                 level.setBlock(pos, state.setValue(LIT, true), 11);
-            } else if (player.getItemInHand(hand).isEmpty() && state.getValue(LIT)) {
-                extinguish(player, state, level, pos);
             }
+
+            else if (player.getItemInHand(hand).isEmpty()) {
+
+                // Extinguish if lit
+                if (state.getValue(LIT)) {
+
+                    extinguish(player, state, level, pos);
+                }
+
+                // Remove candle if unlit
+                else {
+
+                    if (!player.getAbilities().instabuild) {
+
+                        final ItemStack giveStack = new ItemStack(this.contained);
+                        player.getInventory().add(giveStack);
+                    }
+
+                    level.playSound(player, pos, SoundEvents.CANDLE_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    level.setBlock(pos, this.getEmptyBlock().applyFrom(state), 3);
+                }
+            }
+
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
-        return InteractionResult.PASS;
+
+        return InteractionResult.CONSUME;
     }
 
+    @Override
     public BlockState rotate(BlockState state, Rotation rotation) {
+
         return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
     }
 
+    @Override
     public BlockState mirror(BlockState state, Mirror mirror) {
+
         return state.rotate(mirror.getRotation(state.getValue(FACING)));
     }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext ctx) {
+
         return hasNoCandle() ? SKULL : BOTH;
     }
 
     public boolean hasNoCandle() {
+
         return Items.AIR.equals(contained);
     }
 
     private boolean candleHit(BlockHitResult hitResult) {
+
         return hitResult.getLocation().y - (double) hitResult.getBlockPos().getY() > 0.5D;
     }
 
+    @Override
     protected Iterable<Vec3> getParticleOffsets(BlockState state) {
+
         return PARTICLE_OFFSETS;
     }
 
@@ -144,4 +187,8 @@ public class CandleSkullBlock extends AbstractCandleBlock implements IBindRender
         return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, oldState.getValue(BlockStateProperties.HORIZONTAL_FACING));
     }
 
+    public CandleSkullBlock getEmptyBlock() {
+
+        return this.variants.get(Items.AIR);
+    }
 }
