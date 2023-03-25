@@ -4,26 +4,24 @@ import net.darkhax.bookshelf.api.data.recipes.RecipeBaseData;
 import net.darkhax.bookshelf.api.function.CachedSupplier;
 import net.darkhax.bookshelf.api.registry.RegistryObject;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.skeletoncrew.bonezone.Constants;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class AbstractBonecarvingRecipe extends RecipeBaseData<Container> {
 
-    public static final CachedSupplier<RecipeType<AbstractBonecarvingRecipe>> RECIPE_TYPE = RegistryObject.deferred(Registry.RECIPE_TYPE, Constants.MOD_ID, "bonecarving").cast();
+    public static final CachedSupplier<RecipeType<AbstractBonecarvingRecipe>> RECIPE_TYPE = RegistryObject.deferred(BuiltInRegistries.RECIPE_TYPE, Constants.MOD_ID, "bonecarving").cast();
 
     public AbstractBonecarvingRecipe(ResourceLocation id) {
 
@@ -99,6 +97,11 @@ public abstract class AbstractBonecarvingRecipe extends RecipeBaseData<Container
         return false;
     }
 
+    public final ItemStack getResultItem() {
+
+        return super.getResultItem(null);
+    }
+
     /**
      * Collects a list of all valid recipes for the given context.
      *
@@ -112,7 +115,7 @@ public abstract class AbstractBonecarvingRecipe extends RecipeBaseData<Container
 
         return worldLevel.getRecipeManager().getAllRecipesFor(RECIPE_TYPE.get()).stream()
                 .filter(recipe -> recipe.canCraft(player, worldLevel, pos, input))
-                .sorted(Comparator.comparing(recipe -> recipe.getResultItem().getDescriptionId()))
+                .sorted(Comparator.comparing(recipe -> recipe.getResultItem(worldLevel.registryAccess()).getDescriptionId()))
                 .collect(Collectors.toList());
     }
 }

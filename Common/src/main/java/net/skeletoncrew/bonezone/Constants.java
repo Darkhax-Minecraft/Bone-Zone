@@ -1,7 +1,7 @@
 package net.skeletoncrew.bonezone;
 
 import net.darkhax.bookshelf.api.function.CachedSupplier;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.DyeColor;
@@ -39,20 +39,20 @@ public class Constants {
     public static final Map<Item, CandleSkullBlock> CANDLE_WITHER_TYPES = new IdentityHashMap<>();
     public static final Map<Item, CandleSkullBlock> CANDLE_STRAY_TYPES = new IdentityHashMap<>();
 
-    public static final CachedSupplier<Item> BONECARVER = CachedSupplier.cache(() -> Registry.ITEM.get(new ResourceLocation(Constants.MOD_ID, "bonecarver")));
+    public static final CachedSupplier<Item> BONECARVER = CachedSupplier.cache(() -> BuiltInRegistries.ITEM.get(new ResourceLocation(Constants.MOD_ID, "bonecarver")));
 
     // Menus
-    public static final CachedSupplier<MenuType<?>> BONECARVER_MENU = CachedSupplier.cache(() -> Registry.MENU.get(new ResourceLocation(Constants.MOD_ID, "bonecarver")));
+    public static final CachedSupplier<MenuType<?>> BONECARVER_MENU = CachedSupplier.cache(() -> BuiltInRegistries.MENU.get(new ResourceLocation(Constants.MOD_ID, "bonecarver")));
 
     // Biomecolored plant pots
-    public static final CachedSupplier<Block> SKELETON_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "skeleton_potted_fern")));
-    public static final CachedSupplier<Block> WITHER_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "wither_potted_fern")));
-    public static final CachedSupplier<Block> CREEPER_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "creeper_potted_fern")));
-    public static final CachedSupplier<Block> STRAY_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "stray_potted_fern")));
-    public static final CachedSupplier<Block> FLIPPED_SKELETON_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "skeleton_potted_fern_flipped")));
-    public static final CachedSupplier<Block> FLIPPED_WITHER_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "wither_potted_fern_flipped")));
-    public static final CachedSupplier<Block> FLIPPED_CREEPER_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "creeper_potted_fern_flipped")));
-    public static final CachedSupplier<Block> FLIPPED_STRAY_FERN = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "stray_potted_fern_flipped")));
+    public static final CachedSupplier<Block> SKELETON_FERN = CachedSupplier.cache(() -> BuiltInRegistries.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "skeleton_potted_fern")));
+    public static final CachedSupplier<Block> WITHER_FERN = CachedSupplier.cache(() -> BuiltInRegistries.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "wither_potted_fern")));
+    public static final CachedSupplier<Block> CREEPER_FERN = CachedSupplier.cache(() -> BuiltInRegistries.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "creeper_potted_fern")));
+    public static final CachedSupplier<Block> STRAY_FERN = CachedSupplier.cache(() -> BuiltInRegistries.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "stray_potted_fern")));
+    public static final CachedSupplier<Block> FLIPPED_SKELETON_FERN = CachedSupplier.cache(() -> BuiltInRegistries.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "skeleton_potted_fern_flipped")));
+    public static final CachedSupplier<Block> FLIPPED_WITHER_FERN = CachedSupplier.cache(() -> BuiltInRegistries.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "wither_potted_fern_flipped")));
+    public static final CachedSupplier<Block> FLIPPED_CREEPER_FERN = CachedSupplier.cache(() -> BuiltInRegistries.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "creeper_potted_fern_flipped")));
+    public static final CachedSupplier<Block> FLIPPED_STRAY_FERN = CachedSupplier.cache(() -> BuiltInRegistries.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "stray_potted_fern_flipped")));
 
     public static final Map<DyeColor, Item> CANDLES = new IdentityHashMap<>();
 
@@ -76,6 +76,6 @@ public class Constants {
 
     }
 
-    public static final CachedSupplier<Block> CARCASS = CachedSupplier.cache(() -> Registry.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "carcass")));
+    public static final CachedSupplier<Block> CARCASS = CachedSupplier.cache(() -> BuiltInRegistries.BLOCK.get(new ResourceLocation(Constants.MOD_ID, "carcass")));
 
 }

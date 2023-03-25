@@ -12,5 +12,5 @@ pluginManagement {
     }
 }
 
-rootProject.name = "Bone Zone"
+rootProject.name = "BoneZone"
 include('Common', 'Fabric', 'Forge')

@@ -2,6 +2,8 @@ package net.skeletoncrew.bonezone.feature;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -58,10 +60,10 @@ public enum CarcassFeatureRegistry {
     }
 
     private void registerFeature(ResourceLocation feature, Supplier<CarcassFeature> carcass, List<String> biomes) {
-        Registry.register(Registry.FEATURE, feature, carcass.get());
+        Registry.register(BuiltInRegistries.FEATURE, feature, carcass.get());
         BiomeModifications.addFeature(
                 ctx -> ctx.getBiomeKey().location().getNamespace().equals("minecraft") && biomes.contains(ctx.getBiomeKey().location().getPath()),
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION,
-                ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, feature));
+                ResourceKey.create(Registries.PLACED_FEATURE, feature));
     }
 }

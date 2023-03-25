@@ -5,7 +5,8 @@ import net.darkhax.bookshelf.api.function.CachedSupplier;
 import net.darkhax.bookshelf.api.registry.RegistryObject;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
@@ -17,7 +18,7 @@ import net.skeletoncrew.bonezone.Constants;
 
 public class BonecarvingRecipe extends AbstractBonecarvingRecipe {
 
-    private static final CachedSupplier<RecipeSerializer<?>> SERIALIZER = RegistryObject.deferred(Registry.RECIPE_SERIALIZER, Constants.MOD_ID, "bonecarving").cast();
+    private static final CachedSupplier<RecipeSerializer<?>> SERIALIZER = RegistryObject.deferred(BuiltInRegistries.RECIPE_SERIALIZER, Constants.MOD_ID, "bonecarving").cast();
 
     public final Ingredient input;
     protected final ItemStack output;
@@ -56,14 +57,14 @@ public class BonecarvingRecipe extends AbstractBonecarvingRecipe {
     }
 
     @Override
-    public ItemStack getResultItem() {
+    public ItemStack getResultItem(RegistryAccess access) {
 
         return this.output;
     }
 
     @Override
-    public ItemStack assemble(Container c) {
+    public ItemStack assemble(Container c, RegistryAccess access) {
 
-        return this.getResultItem().copy();
+        return this.getResultItem(access).copy();
     }
 }

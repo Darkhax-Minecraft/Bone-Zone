@@ -2,14 +2,17 @@ package net.skeletoncrew.bonezone.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.EntityDamageSource;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -27,16 +30,18 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.skeletoncrew.bonezone.Constants;
 import net.skeletoncrew.bonezone.recipe.mobsanding.AbstractMobsandingRecipe;
 import net.skeletoncrew.bonezone.recipe.mobsanding.MobsandingRecipe;
 import net.skeletoncrew.bonezone.ui.bonecarving.BonecarverMenuProvider;
 
 public class BoneCarverBlock extends Block {
 
+    private static final ResourceKey<DamageType> SANDING_DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(Constants.MOD_ID, "sanding"));
+
     private static final Properties PROPERTIES = Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.5F);
     private static final Component TITLE = Component.translatable("container.bonezone.bonecarver");
     private static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0);
-    private static final DamageSource DAMAGE_SOURCE = new DamageSource("bonezone.sanding") {};
 
     public BoneCarverBlock() {
 
@@ -111,12 +116,19 @@ public class BoneCarverBlock extends Block {
 
             final AbstractMobsandingRecipe recipe = MobsandingRecipe.findRecipe(worldLevel, pos,entity);
 
-            entity.hurt(DAMAGE_SOURCE, recipe == null ? 2f : 3f);
+            entity.hurt(getSource(worldLevel, SANDING_DAMAGE), recipe == null ? 2f : 3f);
 
             if (recipe != null) {
 
                 recipe.onCrafted(worldLevel, pos, entity);
             }
         }
+    }
+
+    private static DamageSource getSource(Level level, ResourceKey<DamageType> id) {
+
+        final Registry<DamageType> registry = level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE);
+        final Holder.Reference<DamageType> damage = registry.getHolderOrThrow(id);
+        return new DamageSource(damage);
     }
 }

@@ -6,7 +6,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonPrimitive;
 import net.minecraft.advancements.critereon.EntityPredicate;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
@@ -27,13 +28,13 @@ public interface EntityCondition extends Predicate<Entity> {
 
         if (value.startsWith("#")) {
 
-            return new TagCondition(TagKey.create(Registry.ENTITY_TYPE_REGISTRY, new ResourceLocation(value.substring(1))));
+            return new TagCondition(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(value.substring(1))));
         }
 
         else {
 
             final ResourceLocation id = new ResourceLocation(value);
-            final EntityType<?> type = Registry.ENTITY_TYPE.containsKey(id) ? Registry.ENTITY_TYPE.get(id) : null;
+            final EntityType<?> type = BuiltInRegistries.ENTITY_TYPE.containsKey(id) ? BuiltInRegistries.ENTITY_TYPE.get(id) : null;
 
             if (type != null) {
 

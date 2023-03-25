@@ -1,0 +1,16 @@
+{
+  "sources": [
+    {
+      "type": "single",
+      "resource": "entity/skeleton/stray"
+    },
+    {
+      "type": "single",
+      "resource": "entity/skeleton/wither_skeleton"
+    },
+    {
+      "type": "single",
+      "resource": "entity/skeleton/wither_skeleton"
+    }
+  ]
+}

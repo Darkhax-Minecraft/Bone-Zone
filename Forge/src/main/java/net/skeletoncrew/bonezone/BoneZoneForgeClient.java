@@ -1,6 +1,5 @@
 package net.skeletoncrew.bonezone;
 
-import com.mojang.datafixers.kinds.Const;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BiomeColors;

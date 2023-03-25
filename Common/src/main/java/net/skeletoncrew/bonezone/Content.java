@@ -34,9 +34,8 @@ public class Content extends RegistryDataProvider {
 //        new CandleSkullGen("wither", "minecraft:entity/skeleton/wither_skeleton").genBlockStates().genModels().genItemFile();
 //        new CandleSkullGen("stray", "minecraft:entity/skeleton/stray").genBlockStates().genModels().genItemFile();
 
-        this.withCreativeTab(() -> Items.SKELETON_SKULL);
+        this.withItemTab(() -> Items.SKELETON_SKULL.getDefaultInstance());
         this.withAutoItemBlocks();
-        this.bindBlockRenderLayers();
 
         // Recipe Types
         this.recipeTypes.add("bonecarving");

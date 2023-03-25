@@ -4,13 +4,17 @@ import com.google.common.collect.Lists;
 import net.darkhax.bookshelf.api.function.CachedSupplier;
 import net.darkhax.bookshelf.api.serialization.Serializers;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.*;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.DataSlot;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.inventory.ResultContainer;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.skeletoncrew.bonezone.Constants;
@@ -22,7 +26,7 @@ import java.util.List;
 
 public class BonecarverMenu extends AbstractContainerMenu {
 
-    private static final CachedSupplier<MenuType<?>> MENU_TYPE = CachedSupplier.cache(() -> Registry.MENU.get(new ResourceLocation(Constants.MOD_ID, "bonecarver")));
+    private static final CachedSupplier<MenuType<?>> MENU_TYPE = CachedSupplier.cache(() -> BuiltInRegistries.MENU.get(new ResourceLocation(Constants.MOD_ID, "bonecarver")));
 
     private final BlockPos bonecarverPos;
     private final Inventory playerInv;
@@ -282,7 +286,7 @@ public class BonecarverMenu extends AbstractContainerMenu {
         if (selectedRecipe != null) {
 
             this.resultContainer.setRecipeUsed(selectedRecipe);
-            this.outputSlot.set(selectedRecipe.assemble(this.container));
+            this.outputSlot.set(selectedRecipe.assemble(this.container, null));
         }
 
         // Invalid recipe, reset the output.

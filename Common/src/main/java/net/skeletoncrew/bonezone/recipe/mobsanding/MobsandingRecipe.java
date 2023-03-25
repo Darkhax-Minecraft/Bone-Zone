@@ -4,7 +4,7 @@ import net.darkhax.bookshelf.api.function.CachedSupplier;
 import net.darkhax.bookshelf.api.registry.RegistryObject;
 import net.darkhax.bookshelf.api.util.MathsHelper;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
@@ -15,7 +15,7 @@ import net.skeletoncrew.bonezone.recipe.util.entityconditions.EntityCondition;
 
 public class MobsandingRecipe extends AbstractMobsandingRecipe {
 
-    private static final CachedSupplier<RecipeSerializer<?>> SERIALIZER = RegistryObject.deferred(Registry.RECIPE_SERIALIZER, Constants.MOD_ID, "mobsanding").cast();
+    private static final CachedSupplier<RecipeSerializer<?>> SERIALIZER = RegistryObject.deferred(BuiltInRegistries.RECIPE_SERIALIZER, Constants.MOD_ID, "mobsanding").cast();
 
     private final EntityCondition condition;
     private final DropEntry[] drops;

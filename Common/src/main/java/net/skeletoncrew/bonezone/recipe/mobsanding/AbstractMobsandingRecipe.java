@@ -4,7 +4,7 @@ import net.darkhax.bookshelf.api.data.recipes.RecipeBaseData;
 import net.darkhax.bookshelf.api.function.CachedSupplier;
 import net.darkhax.bookshelf.api.registry.RegistryObject;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -16,7 +16,7 @@ import net.skeletoncrew.bonezone.Constants;
 
 public abstract class AbstractMobsandingRecipe extends RecipeBaseData<Container> {
 
-    public static final CachedSupplier<RecipeType<AbstractMobsandingRecipe>> RECIPE_TYPE = RegistryObject.deferred(Registry.RECIPE_TYPE, Constants.MOD_ID, "mobsanding").cast();
+    public static final CachedSupplier<RecipeType<AbstractMobsandingRecipe>> RECIPE_TYPE = RegistryObject.deferred(BuiltInRegistries.RECIPE_TYPE, Constants.MOD_ID, "mobsanding").cast();
 
     public AbstractMobsandingRecipe(ResourceLocation id) {
 

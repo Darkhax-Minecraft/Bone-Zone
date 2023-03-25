@@ -59,7 +59,7 @@ public class BonecarverScreen extends AbstractContainerScreen<BonecarverMenu> {
         final int recipesY = this.topPos + 14;
         final int lastVisible = this.startIndex + 12;
         this.renderButtons(poseStack, x, y, recipesX, recipesY, lastVisible);
-        this.renderRecipes(recipesX, recipesY, lastVisible);
+        this.renderRecipes(poseStack, recipesX, recipesY, lastVisible);
     }
 
     @Override
@@ -116,7 +116,7 @@ public class BonecarverScreen extends AbstractContainerScreen<BonecarverMenu> {
 
     }
 
-    private void renderRecipes(int recipesX, int recipesY, int lastVisibleRecipe) {
+    private void renderRecipes(PoseStack pose, int recipesX, int recipesY, int lastVisibleRecipe) {
 
         final List<AbstractBonecarvingRecipe> recipes = this.menu.getAvailableRecipes();
 
@@ -126,7 +126,7 @@ public class BonecarverScreen extends AbstractContainerScreen<BonecarverMenu> {
             final int buttonX = recipesX + buttonId % 4 * 16;
             final int buttonY = recipesY + (buttonId / 4) * 18 + 2;
 
-            this.minecraft.getItemRenderer().renderAndDecorateItem(recipes.get(recipeIndex).getResultItem(), buttonX, buttonY);
+            this.minecraft.getItemRenderer().renderAndDecorateItem(pose, recipes.get(recipeIndex).getResultItem(), buttonX, buttonY);
         }
     }
 
