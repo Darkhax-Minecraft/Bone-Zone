@@ -82,7 +82,7 @@ public class BonecarverScreen extends AbstractContainerScreen<BonecarverMenu> {
 
                 if (mouseX >= buttonX && mouseX < buttonX + 16 && mouseY >= buttonY && mouseY < buttonY + 18) {
 
-                    this.renderTooltip(poseStack, availableRecipes.get(recipeIndex).getResultItem(), mouseX, mouseY);
+                    this.renderTooltip(poseStack, availableRecipes.get(recipeIndex).getResultItem(null), mouseX, mouseY);
                 }
             }
         }
@@ -126,7 +126,7 @@ public class BonecarverScreen extends AbstractContainerScreen<BonecarverMenu> {
             final int buttonX = recipesX + buttonId % 4 * 16;
             final int buttonY = recipesY + (buttonId / 4) * 18 + 2;
 
-            this.minecraft.getItemRenderer().renderAndDecorateItem(pose, recipes.get(recipeIndex).getResultItem(), buttonX, buttonY);
+            this.minecraft.getItemRenderer().renderAndDecorateItem(pose, recipes.get(recipeIndex).getResultItem(null), buttonX, buttonY);
         }
     }
 

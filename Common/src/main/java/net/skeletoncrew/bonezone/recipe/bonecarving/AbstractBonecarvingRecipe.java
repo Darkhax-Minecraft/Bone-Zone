@@ -97,11 +97,6 @@ public abstract class AbstractBonecarvingRecipe extends RecipeBaseData<Container
         return false;
     }
 
-    public final ItemStack getResultItem() {
-
-        return super.getResultItem(null);
-    }
-
     /**
      * Collects a list of all valid recipes for the given context.
      *
