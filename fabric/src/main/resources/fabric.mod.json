@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "${mod_homepage}",
+    "sources": "${mod_source}",
+    "issues": "${mod_issues}"
+  },
+  "icon": "logo.png",
+  "license": "${mod_license}",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.skeletoncrew.bonezone.BoneZoneFabric"
+    ],
+    "client": [
+      "net.skeletoncrew.bonezone.BoneZoneFabricClient"
+    ],
+    "jei_mod_plugin": [
+      "net.skeletoncrew.bonezone.addons.jei.JEIPlugin"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.22",
+    "fabric": "*",
+    "minecraft": "1.20.x",
+    "java": ">=17",
+    "bookshelf": ">=20"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.curseforge": "${mod_homepage}"
+      }
+    }
+  }
+}
