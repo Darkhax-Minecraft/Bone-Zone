@@ -5,12 +5,12 @@ import net.darkhax.bookshelf.api.function.CachedSupplier;
 import net.darkhax.bookshelf.api.registry.RegistryObject;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.skeletoncrew.bonezone.Constants;
@@ -22,11 +22,6 @@ import java.util.stream.Collectors;
 public abstract class AbstractBonecarvingRecipe extends RecipeBaseData<Container> {
 
     public static final CachedSupplier<RecipeType<AbstractBonecarvingRecipe>> RECIPE_TYPE = RegistryObject.deferred(BuiltInRegistries.RECIPE_TYPE, Constants.MOD_ID, "bonecarving").cast();
-
-    public AbstractBonecarvingRecipe(ResourceLocation id) {
-
-        super(id);
-    }
 
     /**
      * Determines if the recipe can be crafted.
@@ -86,9 +81,9 @@ public abstract class AbstractBonecarvingRecipe extends RecipeBaseData<Container
      */
     public static boolean hasRecipe(Player player, Level worldLevel, BlockPos pos, ItemStack input) {
 
-        for (final AbstractBonecarvingRecipe recipe : worldLevel.getRecipeManager().getAllRecipesFor(RECIPE_TYPE.get())) {
+        for (final RecipeHolder<AbstractBonecarvingRecipe> recipe : worldLevel.getRecipeManager().getAllRecipesFor(RECIPE_TYPE.get())) {
 
-            if (recipe.canCraft(player, worldLevel, pos, input)) {
+            if (recipe != null && recipe.value().canCraft(player, worldLevel, pos, input)) {
 
                 return true;
             }
@@ -106,11 +101,11 @@ public abstract class AbstractBonecarvingRecipe extends RecipeBaseData<Container
      * @param input      The input item.
      * @return A list of all valid recipes.
      */
-    public static List<AbstractBonecarvingRecipe> findRecipes(Player player, Level worldLevel, BlockPos pos, ItemStack input) {
+    public static List<RecipeHolder<AbstractBonecarvingRecipe>> findRecipes(Player player, Level worldLevel, BlockPos pos, ItemStack input) {
 
         return worldLevel.getRecipeManager().getAllRecipesFor(RECIPE_TYPE.get()).stream()
-                .filter(recipe -> recipe.canCraft(player, worldLevel, pos, input))
-                .sorted(Comparator.comparing(recipe -> recipe.getResultItem(worldLevel.registryAccess()).getDescriptionId()))
+                .filter(recipe -> recipe.value().canCraft(player, worldLevel, pos, input))
+                .sorted(Comparator.comparing(recipe -> recipe.value().getResultItem(worldLevel.registryAccess()).getDescriptionId()))
                 .collect(Collectors.toList());
     }
 }

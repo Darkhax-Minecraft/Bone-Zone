@@ -25,7 +25,7 @@ public class ResultSlot extends Slot {
     @Override
     public void onTake(Player player, ItemStack stack) {
 
-        owningMenu.onItemCrafted(player, stack, owningMenu.getSelectedRecipe());
+        owningMenu.onItemCrafted(player, stack, owningMenu.getSelectedRecipe().value());
         super.onTake(player, stack);
     }
 }

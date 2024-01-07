@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.skeletoncrew.bonezone.Constants;
 import net.skeletoncrew.bonezone.recipe.bonecarving.AbstractBonecarvingRecipe;
 
@@ -36,7 +37,6 @@ public class BonecarverScreen extends AbstractContainerScreen<BonecarverMenu> {
     protected void renderBg(GuiGraphics graphics, float partialTicks, int x, int y) {
 
         // Setup
-        this.renderBackground(graphics);
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, BG_LOCATION);
@@ -73,7 +73,7 @@ public class BonecarverScreen extends AbstractContainerScreen<BonecarverMenu> {
             final int recipesX = this.leftPos + 52;
             final int recipesY = this.topPos + 14;
             final int lastRecipeIndex = this.startIndex + 12;
-            final List<AbstractBonecarvingRecipe> availableRecipes = this.menu.getAvailableRecipes();
+            final List<RecipeHolder<AbstractBonecarvingRecipe>> availableRecipes = this.menu.getAvailableRecipes();
 
             for (int recipeIndex = this.startIndex; recipeIndex < lastRecipeIndex && recipeIndex < this.menu.getRecipeCount(); recipeIndex++) {
 
@@ -83,7 +83,11 @@ public class BonecarverScreen extends AbstractContainerScreen<BonecarverMenu> {
 
                 if (mouseX >= buttonX && mouseX < buttonX + 16 && mouseY >= buttonY && mouseY < buttonY + 18) {
 
-                    graphics.renderTooltip(this.font, availableRecipes.get(recipeIndex).getResultItem(null), mouseX, mouseY);
+                    final RecipeHolder<AbstractBonecarvingRecipe> recipe = availableRecipes.get(recipeIndex);
+
+                    if (recipe != null && recipe.value() != null) {
+                        graphics.renderTooltip(this.font, availableRecipes.get(recipeIndex).value().getResultItem(null), mouseX, mouseY);
+                    }
                 }
             }
         }
@@ -119,7 +123,7 @@ public class BonecarverScreen extends AbstractContainerScreen<BonecarverMenu> {
 
     private void renderRecipes(GuiGraphics graphics, int recipesX, int recipesY, int lastVisibleRecipe) {
 
-        final List<AbstractBonecarvingRecipe> recipes = this.menu.getAvailableRecipes();
+        final List<RecipeHolder<AbstractBonecarvingRecipe>> recipes = this.menu.getAvailableRecipes();
 
         for (int recipeIndex = this.startIndex; recipeIndex < lastVisibleRecipe && recipeIndex < this.menu.getRecipeCount(); recipeIndex++) {
 
@@ -127,7 +131,7 @@ public class BonecarverScreen extends AbstractContainerScreen<BonecarverMenu> {
             final int buttonX = recipesX + buttonId % 4 * 16;
             final int buttonY = recipesY + (buttonId / 4) * 18 + 2;
 
-            graphics.renderItem(recipes.get(recipeIndex).getResultItem(null), buttonX, buttonY);
+            graphics.renderItem(recipes.get(recipeIndex).value().getResultItem(null), buttonX, buttonY);
         }
     }
 
@@ -193,12 +197,12 @@ public class BonecarverScreen extends AbstractContainerScreen<BonecarverMenu> {
     }
 
     @Override
-    public boolean mouseScrolled(double mouseX, double mouseY, double scrollAmount) {
+    public boolean mouseScrolled(double mouseX, double mouseY, double scrollX, double scrollY) {
 
         if (this.isScrollBarActive()) {
 
             final int offscreenRows = this.getOffscreenRows();
-            final float offsetDelta = (float) scrollAmount / (float) offscreenRows;
+            final float offsetDelta = (float) scrollY / (float) offscreenRows;
 
             this.scrollOffs = Mth.clamp(this.scrollOffs - offsetDelta, 0.0F, 1.0F);
             this.startIndex = (int) ((double) (this.scrollOffs * (float) offscreenRows) + 0.5) * 4;

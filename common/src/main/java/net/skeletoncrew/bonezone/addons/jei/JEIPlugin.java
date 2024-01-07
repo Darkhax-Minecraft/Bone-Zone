@@ -9,6 +9,7 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.skeletoncrew.bonezone.Constants;
 import net.skeletoncrew.bonezone.addons.jei.bonecarving.BonecarvingCategory;
@@ -20,7 +21,7 @@ import java.util.List;
 public class JEIPlugin implements IModPlugin {
 
     private static final ResourceLocation PLUGIN_ID = new ResourceLocation(Constants.MOD_ID, "jei_support");
-    public static final RecipeType<AbstractBonecarvingRecipe> BONECARVING = RecipeType.create(Constants.MOD_ID, "bonecarving", AbstractBonecarvingRecipe .class);
+    public static final RecipeType<AbstractBonecarvingRecipe> BONECARVING = RecipeType.create(Constants.MOD_ID, "bonecarving", AbstractBonecarvingRecipe.class);
 
     @Override
     public ResourceLocation getPluginUid() {
@@ -44,7 +45,7 @@ public class JEIPlugin implements IModPlugin {
     public void registerRecipes(IRecipeRegistration registration) {
 
         final RecipeManager recipeManager = Minecraft.getInstance().level.getRecipeManager();
-        final List<AbstractBonecarvingRecipe> recipes = recipeManager.getAllRecipesFor(AbstractBonecarvingRecipe.RECIPE_TYPE.get());
+        final List<AbstractBonecarvingRecipe> recipes = recipeManager.getAllRecipesFor(AbstractBonecarvingRecipe.RECIPE_TYPE.get()).stream().map(RecipeHolder::value).toList();
         registration.addRecipes(BONECARVING, recipes);
     }
 }

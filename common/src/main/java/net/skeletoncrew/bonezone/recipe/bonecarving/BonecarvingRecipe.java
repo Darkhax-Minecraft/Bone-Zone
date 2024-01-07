@@ -19,17 +19,29 @@ import net.skeletoncrew.bonezone.Constants;
 public class BonecarvingRecipe extends AbstractBonecarvingRecipe {
 
     private static final CachedSupplier<RecipeSerializer<?>> SERIALIZER = RegistryObject.deferred(BuiltInRegistries.RECIPE_SERIALIZER, Constants.MOD_ID, "bonecarving").cast();
-
     public final Ingredient input;
     protected final ItemStack output;
     protected final Sound sound;
 
-    public BonecarvingRecipe(ResourceLocation id, Ingredient input, ItemStack output, Sound sound) {
+    public BonecarvingRecipe(Ingredient input, ItemStack output, Sound sound) {
 
-        super(id);
         this.input = input;
         this.output = output;
         this.sound = sound;
+    }
+
+    public Ingredient getInput() {
+
+        return this.input;
+    }
+
+    public ItemStack getOutput() {
+
+        return this.output;
+    }
+
+    public Sound getCraftingSound() {
+        return this.sound;
     }
 
     @Override

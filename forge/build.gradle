@@ -1,21 +1,15 @@
-buildscript {
-    repositories {
-        maven { url 'https://maven.minecraftforge.net' }
-        maven { url 'https://plugins.gradle.org/m2/' }
-        maven { url 'https://repo.spongepowered.org/repository/maven-public' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
-        classpath group: 'net.darkhax.curseforgegradle', name: 'CurseForgeGradle', version: '1.0.11'
-    }
+plugins {
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.spongepowered.mixin' version '0.7-SNAPSHOT'
+    id 'net.darkhax.curseforgegradle'
+    id 'com.modrinth.minotaur'
 }
 
-apply plugin: 'net.minecraftforge.gradle'
 apply from: '../gradle/patreon.gradle'
 
-archivesBaseName = "${mod_name}-Forge-${minecraft_version}"
+base {
+    archivesName = "${mod_name}-Forge-${minecraft_version}"
+}
 
 minecraft {
 
@@ -37,7 +31,7 @@ minecraft {
             mods {
                 modClientRun {
                     source sourceSets.main
-                    source project(":common").sourceSets.main
+                    source project(':common').sourceSets.main
                 }
             }
         }
@@ -57,10 +51,17 @@ minecraft {
             mods {
                 modServerRun {
                     source sourceSets.main
-                    source project(":common").sourceSets.main
+                    source project(':common').sourceSets.main
                 }
             }
         }
+    }
+}
+
+repositories {
+
+    maven {
+        url = 'https://maven.theillusivec4.top/'
     }
 }
 
@@ -69,18 +70,27 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     implementation fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-${project.ext.minecraft_version}:${project.ext.bookshelf_version}")
     implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
-    compileOnly project(":common")
+
+    compileOnly project(':common')
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
-tasks.withType(JavaCompile) {
-    source(project(":common").sourceSets.main.allSource)
+tasks.withType(JavaCompile).configureEach {
+    source(project(':common').sourceSets.main.allSource)
+}
+
+tasks.withType(Javadoc).configureEach {
+    source(project(':common').sourceSets.main.allJava)
+}
+
+tasks.named("sourcesJar", Jar) {
+    from(project(':common').sourceSets.main.allSource)
 }
 
 processResources {
 
-    from project(":common").sourceSets.main.resources
+    from project(':common').sourceSets.main.resources
 
     def buildProps = project.properties.clone()
 
@@ -137,8 +147,6 @@ jar {
 // -- Mixin Support
 if (project.ext.mixin_enabled) {
 
-    apply plugin: 'org.spongepowered.mixin'
-
     mixin {
 
         // Tells the mixin plugin where to put the generated refmap file.
@@ -153,20 +161,9 @@ project.publishing {
 
         mavenJava(MavenPublication) {
 
-            artifactId project.archivesBaseName
-
-            // Base mod archive.
-            artifact jar
-
-            // Adds the sources as an artifact.
-            artifact project.sourcesJar {
-                classifier 'sources'
-            }
-
-            // Adds the javadocs as an artifact.
-            artifact project.javadocJar {
-                classifier 'javadoc'
-            }
+            artifactId = base.archivesName.get()
+            from components.java
+            fg.component(it)
         }
     }
 
@@ -196,9 +193,13 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     apiToken = findProperty('curse_auth')
 
     def mainFile = upload(curse_project, jar)
+    mainFile.addModLoader('NeoForge')
     mainFile.changelogType = 'markdown'
     mainFile.changelog = project.ext.mod_changelog
     mainFile.addJavaVersion('Java 17')
+    mainFile.releaseType = 'release'
+    mainFile.addGameVersion('Client', 'Server')
+
     mainFile.addRequirement('bookshelf')
 
     // Append Patreon Supporters
@@ -214,5 +215,27 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 
             project.ext.curse_file_url = "${mod_homepage}/files/${mainFile.curseFileId}"
         }
+    }
+}
+
+// Modrinth
+modrinth {
+
+    def patreonInfo = project.findProperty('patreon')
+    def changelogText = project.ext.mod_changelog
+
+    if (patreonInfo) {
+        changelogText += "\n\nThis project is made possible by [Patreon](${patreonInfo.campaignUrlTracked}) support from players like you. Thank you!\n\n${patreonInfo.pledgeLog}"
+    }
+
+    token.set(project.findProperty('modrinth_auth'))
+    projectId.set(modrinth_project)
+    changelog.set(changelogText)
+    versionName.set("${mod_name}-Forge-${minecraft_version}-$version")
+    versionType.set('release')
+    uploadFile.set(tasks.jar)
+
+    dependencies {
+        required.project('bookshelf-lib')
     }
 }

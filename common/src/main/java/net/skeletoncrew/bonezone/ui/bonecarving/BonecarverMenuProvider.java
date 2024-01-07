@@ -1,7 +1,7 @@
 package net.skeletoncrew.bonezone.ui.bonecarving;
 
 import net.darkhax.bookshelf.api.Services;
-import net.darkhax.bookshelf.api.serialization.Serializers;
+import net.darkhax.bookshelf.api.data.bytebuf.BookshelfByteBufs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -39,6 +39,6 @@ public class BonecarverMenuProvider implements MenuProvider {
     public static void openMenu(ServerPlayer serverPlayer, BlockPos carverPos, Component title) {
 
         final BonecarverMenuProvider provider = new BonecarverMenuProvider(carverPos, title);
-        Services.INVENTORY_HELPER.openMenu(serverPlayer, provider, buf -> Serializers.BLOCK_POS.toByteBuf(buf, carverPos));
+        Services.INVENTORY_HELPER.openMenu(serverPlayer, provider, buf -> BookshelfByteBufs.BLOCK_POS.write(buf, carverPos));
     }
 }

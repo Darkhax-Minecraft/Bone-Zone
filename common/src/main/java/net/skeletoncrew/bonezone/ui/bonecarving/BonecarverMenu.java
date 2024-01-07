@@ -1,8 +1,8 @@
 package net.skeletoncrew.bonezone.ui.bonecarving;
 
 import com.google.common.collect.Lists;
+import net.darkhax.bookshelf.api.data.bytebuf.BookshelfByteBufs;
 import net.darkhax.bookshelf.api.function.CachedSupplier;
-import net.darkhax.bookshelf.api.serialization.Serializers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
@@ -16,6 +16,7 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.ResultContainer;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.skeletoncrew.bonezone.Constants;
 import net.skeletoncrew.bonezone.block.BoneCarverBlock;
@@ -38,7 +39,7 @@ public class BonecarverMenu extends AbstractContainerMenu {
 
     long lastSoundTime;
     private ItemStack input;
-    private List<AbstractBonecarvingRecipe> validRecipes;
+    private List<RecipeHolder<AbstractBonecarvingRecipe>> validRecipes;
 
     public BonecarverMenu(int windowId, Inventory playerInv, final BlockPos bonecarverPos) {
 
@@ -211,7 +212,7 @@ public class BonecarverMenu extends AbstractContainerMenu {
      */
     public static BonecarverMenu fromNetwork(int windowId, Inventory inv, FriendlyByteBuf buf) {
 
-        final BlockPos bonecarverPos = Serializers.BLOCK_POS.fromByteBuf(buf);
+        final BlockPos bonecarverPos = BookshelfByteBufs.BLOCK_POS.read(buf);
         return new BonecarverMenu(windowId, inv, bonecarverPos);
     }
 
@@ -281,12 +282,12 @@ public class BonecarverMenu extends AbstractContainerMenu {
     private void updateResults() {
 
         // If a valid recipe is selected, set the output.
-        final AbstractBonecarvingRecipe selectedRecipe = this.getSelectedRecipe();
+        final RecipeHolder<AbstractBonecarvingRecipe> selectedRecipe = this.getSelectedRecipe();
 
-        if (selectedRecipe != null) {
+        if (selectedRecipe != null && selectedRecipe.value() != null) {
 
             this.resultContainer.setRecipeUsed(selectedRecipe);
-            this.outputSlot.set(selectedRecipe.assemble(this.container, null));
+            this.outputSlot.set(selectedRecipe.value().assemble(this.container, null));
         }
 
         // Invalid recipe, reset the output.
@@ -313,7 +314,7 @@ public class BonecarverMenu extends AbstractContainerMenu {
      *
      * @return A list of recipes available to craft.
      */
-    public List<AbstractBonecarvingRecipe> getAvailableRecipes() {
+    public List<RecipeHolder<AbstractBonecarvingRecipe>> getAvailableRecipes() {
 
         return this.validRecipes;
     }
@@ -325,7 +326,7 @@ public class BonecarverMenu extends AbstractContainerMenu {
      * recipe is invalid the result will be null.
      */
     @Nullable
-    public AbstractBonecarvingRecipe getSelectedRecipe() {
+    public RecipeHolder<AbstractBonecarvingRecipe> getSelectedRecipe() {
 
         return !this.validRecipes.isEmpty() && this.isValidRecipeIndex(this.selectedRecipeIndex.get()) ? this.validRecipes.get(this.selectedRecipeIndex.get()) : null;
     }
