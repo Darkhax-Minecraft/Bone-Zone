@@ -30,8 +30,8 @@ runs {
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
     implementation "net.darkhax.bookshelf:Bookshelf-NeoForge-${project.ext.minecraft_version}:${project.ext.bookshelf_version}"
-    compileOnly group: 'mezz.jei', name: "jei-${minecraft_version}-common-api", version: jei_version
-    testCompileOnly group: 'mezz.jei', name: "jei-${minecraft_version}-common-api", version: jei_version
+    compileOnly group: 'mezz.jei', name: "jei-1.20.2-common-api", version: jei_version
+    testCompileOnly group: 'mezz.jei', name: "jei-1.20.2-common-api", version: jei_version
     compileOnly project(':common')
 }
 

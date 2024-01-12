@@ -22,7 +22,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 
     modImplementation "net.darkhax.bookshelf:Bookshelf-Fabric-${project.ext.minecraft_version}:${project.ext.bookshelf_version}"
-    modImplementation "mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"
+    compileOnly "mezz.jei:jei-1.20.2-fabric:${jei_version}"
 
     implementation project(':common')
 }

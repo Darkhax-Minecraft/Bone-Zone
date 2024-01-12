@@ -21,9 +21,6 @@
     ],
     "client": [
       "net.skeletoncrew.bonezone.BoneZoneFabricClient"
-    ],
-    "jei_mod_plugin": [
-      "net.skeletoncrew.bonezone.addons.jei.JEIPlugin"
     ]
   },
   "depends": {

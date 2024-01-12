@@ -1,5 +1,6 @@
 package net.skeletoncrew.bonezone.block;
 
+import com.mojang.serialization.MapCodec;
 import net.darkhax.bookshelf.api.block.IBindRenderLayer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
@@ -87,5 +88,10 @@ public class CarcassBlock extends HorizontalDirectionalBlock implements IBindRen
     @Override
     public RenderType getRenderLayerToBind() {
         return RenderType.cutout();
+    }
+
+    @Override
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        throw new RuntimeException("This block has not implemented codecs yet. Sorry :(");
     }
 }

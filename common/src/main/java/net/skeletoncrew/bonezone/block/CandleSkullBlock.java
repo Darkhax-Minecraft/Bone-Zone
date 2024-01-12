@@ -1,6 +1,8 @@
 package net.skeletoncrew.bonezone.block;
 
 import com.google.common.collect.ImmutableList;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.darkhax.bookshelf.api.block.IBindRenderLayer;
 import net.darkhax.bookshelf.api.block.IItemBlockProvider;
 import net.minecraft.client.renderer.RenderType;
@@ -46,6 +48,7 @@ public class CandleSkullBlock extends AbstractCandleBlock implements IBindRender
 
     private final Map<Item, CandleSkullBlock> variants;
     private final Item contained;
+    private final MapCodec<? extends AbstractCandleBlock> codec;
 
     public CandleSkullBlock(BlockBehaviour.Properties props, Item candle, Map<Item, CandleSkullBlock> variants) {
 
@@ -54,6 +57,13 @@ public class CandleSkullBlock extends AbstractCandleBlock implements IBindRender
         variants.put(candle, this);
         this.variants = variants;
         this.contained = candle;
+        this.codec = BlockBehaviour.simpleCodec(newProps -> new CandleSkullBlock(newProps, candle, variants));
+    }
+
+    @Override
+    protected MapCodec<? extends AbstractCandleBlock> codec() {
+        
+        return this.codec;
     }
 
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
