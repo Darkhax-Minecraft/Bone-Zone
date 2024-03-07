@@ -20,10 +20,12 @@ public enum CarcassFeatureRegistry {
     private static final ResourceLocation BIRD_FEATURE = new ResourceLocation(Constants.MOD_ID, "carcass_bird");
     private static final ResourceLocation DEER_FEATURE = new ResourceLocation(Constants.MOD_ID, "carcass_deer");
     private static final ResourceLocation GOAT_FEATURE = new ResourceLocation(Constants.MOD_ID, "carcass_goat");
+    private static final ResourceLocation BULL_FEATURE = new ResourceLocation(Constants.MOD_ID, "carcass_bull");
 
     private static final List<String> BIRD_BIOMES = new ArrayList<>();
     private static final List<String> DEER_BIOMES = new ArrayList<>();
     private static final List<String> GOAT_BIOMES = new ArrayList<>();
+    private static final List<String> BULL_BIOMES = new ArrayList<>();
 
     static {
         BIRD_BIOMES.add("taiga");
@@ -53,10 +55,20 @@ public enum CarcassFeatureRegistry {
         GOAT_BIOMES.add("windswept_gravely_hills");
     }
 
+    static {
+        BULL_BIOMES.add("stony_shore");
+        BULL_BIOMES.add("dark_forest");
+        BULL_BIOMES.add("badlands");
+        BULL_BIOMES.add("eroded_badlands");
+        BULL_BIOMES.add("river");
+        BULL_BIOMES.add("savanna_plateau");
+    }
+
     public void register() {
         registerFeature(BIRD_FEATURE, CarcassFeature::new, BIRD_BIOMES);
         registerFeature(DEER_FEATURE, CarcassFeature::new, DEER_BIOMES);
         registerFeature(GOAT_FEATURE, CarcassFeature::new, GOAT_BIOMES);
+        registerFeature(BULL_FEATURE, CarcassFeature::new, BULL_BIOMES);
     }
 
     private void registerFeature(ResourceLocation feature, Supplier<CarcassFeature> carcass, List<String> biomes) {

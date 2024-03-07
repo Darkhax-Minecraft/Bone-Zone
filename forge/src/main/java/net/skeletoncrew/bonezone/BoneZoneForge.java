@@ -15,6 +15,7 @@ public class BoneZoneForge {
     public static final RegistryObject<Feature<?>> BIRD = FEATURES.register("carcass_bird", CarcassFeature::new);
     public static final RegistryObject<Feature<?>> DEER = FEATURES.register("carcass_deer", CarcassFeature::new);
     public static final RegistryObject<Feature<?>> GOAT = FEATURES.register("carcass_goat", CarcassFeature::new);
+    public static final RegistryObject<Feature<?>> BULL = FEATURES.register("carcass_bull", CarcassFeature::new);
 
     public BoneZoneForge() {
 

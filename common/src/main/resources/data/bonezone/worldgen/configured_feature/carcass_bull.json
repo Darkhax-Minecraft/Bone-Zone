@@ -1,0 +1,7 @@
+{
+  "config": {
+    "blockIds": "#bonezone:carcass_spawnable",
+    "spinalSkull": "bonezone:spinal_skull_bull"
+  },
+  "type": "bonezone:carcass_bull"
+}

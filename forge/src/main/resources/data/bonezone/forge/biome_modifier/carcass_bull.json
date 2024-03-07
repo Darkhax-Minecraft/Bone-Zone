@@ -1,0 +1,15 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:stony_shore",
+    "minecraft:dark_forest",
+    "minecraft:badlands",
+    "minecraft:eroded_badlands",
+    "minecraft:river",
+    "minecraft:savanna_plateau"
+  ],
+  "features": [
+    "bonezone:carcass_bull"
+  ],
+  "step": "top_layer_modification"
+}
