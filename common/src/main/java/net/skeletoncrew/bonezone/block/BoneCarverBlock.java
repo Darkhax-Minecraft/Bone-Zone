@@ -1,5 +1,6 @@
 package net.skeletoncrew.bonezone.block;
 
+import net.darkhax.bookshelf.api.block.IBlockHooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -26,6 +27,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -35,7 +37,7 @@ import net.skeletoncrew.bonezone.recipe.mobsanding.AbstractMobsandingRecipe;
 import net.skeletoncrew.bonezone.recipe.mobsanding.MobsandingRecipe;
 import net.skeletoncrew.bonezone.ui.bonecarving.BonecarverMenuProvider;
 
-public class BoneCarverBlock extends Block {
+public class BoneCarverBlock extends Block implements IBlockHooks {
 
     private static final ResourceKey<DamageType> SANDING_DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(Constants.MOD_ID, "sanding"));
 
@@ -130,5 +132,11 @@ public class BoneCarverBlock extends Block {
         final Registry<DamageType> registry = level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE);
         final Holder.Reference<DamageType> damage = registry.getHolderOrThrow(id);
         return new DamageSource(damage);
+    }
+
+    @Override
+    public BlockPathTypes getPathfindingType(BlockState state, BlockGetter level, BlockPos pos) {
+
+        return BlockPathTypes.DAMAGE_OTHER;
     }
 }
