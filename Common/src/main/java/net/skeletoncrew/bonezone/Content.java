@@ -36,7 +36,6 @@ public class Content extends RegistryDataProvider {
 
         this.withCreativeTab(() -> Items.SKELETON_SKULL);
         this.withAutoItemBlocks();
-        this.bindBlockRenderLayers();
 
         // Recipe Types
         this.recipeTypes.add("bonecarving");
