@@ -1,0 +1,106 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "bonezone:block/skull/snake/snake_skull",
+		"skull": "bonezone:block/skull/snake/snake_skull",
+		"side": "bonezone:block/skull/snake/snake_side",
+		"spine": "bonezone:block/skull/spine"
+	},
+	"elements": [
+		{
+			"name": "head",
+			"from": [4, -2, 5],
+			"to": [12, 8, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 4, 4]},
+			"faces": {
+				"south": {"uv": [4, 6, 12, 16], "texture": "#spine"},
+				"up": {"uv": [4, 0, 12, 7], "texture": "#spine"}
+			}
+		},
+		{
+			"name": "skull",
+			"from": [4, 3.1, -2],
+			"to": [12, 9.1, 8],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 8, 6], "texture": "#skull"},
+				"east": {"uv": [0, 0, 10, 6], "texture": "#side"},
+				"south": {"uv": [8, 0, 16, 6], "texture": "#skull"},
+				"west": {"uv": [10, 0, 0, 6], "texture": "#side"},
+				"up": {"uv": [8, 6, 16, 16], "rotation": 180, "texture": "#skull"},
+				"down": {"uv": [0, 6, 8, 16], "texture": "#skull"}
+			}
+		},
+		{
+			"name": "fang",
+			"from": [5, 1.1, -1],
+			"to": [11, 7.1, 0],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [1, 10, 7, 16], "texture": "#side"},
+				"east": {"uv": [0, 10, 1, 16], "texture": "#side"},
+				"west": {"uv": [7, 10, 8, 16], "texture": "#side", "cullface": "west"}
+			}
+		},
+		{
+			"name": "fang-inverted-inside",
+			"from": [11, 1.1, -1],
+			"to": [5, 7.1, 0],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [11, 8, 8]},
+			"faces": {
+				"north": {"uv": [1, 10, 7, 16], "texture": "#side"},
+				"east": {"uv": [0, 10, 1, 16], "texture": "#side"},
+				"west": {"uv": [7, 10, 8, 16], "texture": "#side", "cullface": "west"}
+			}
+		},
+		{
+			"name": "skull_inverted_inside",
+			"from": [12, 3.1, -2],
+			"to": [4, 9.1, 8],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 8, 6], "texture": "#skull"},
+				"east": {"uv": [0, 0, 10, 6], "texture": "#side"},
+				"south": {"uv": [8, 0, 16, 6], "texture": "#skull"},
+				"west": {"uv": [10, 0, 0, 6], "texture": "#side"},
+				"up": {"uv": [8, 6, 16, 16], "rotation": 180, "texture": "#skull"},
+				"down": {"uv": [0, 6, 8, 16], "texture": "#skull"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 225, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [-1, 2, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"head": {
+			"translation": [0, 7, 0],
+			"scale": [1.8, 1.8, 1.8]
+		},
+		"fixed": {
+			"rotation": [-45, 0, 0],
+			"translation": [0, 3.5, -1.5]
+		}
+	}
+}
